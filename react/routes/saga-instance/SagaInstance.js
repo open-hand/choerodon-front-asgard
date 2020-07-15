@@ -258,7 +258,7 @@ const SagaInstance = withRouter(observer((props) => {
   let services = ['choerodon.code.site.manager.saga-manager.saga-instance.ps.default'];
   if (type === 'organization') {
     services = ['choerodon.code.organization.manager.saga-instance.ps.default'];
-  } else {
+  } else if (type === 'project') {
     services = ['choerodon.code.project.operation.saga-instance.ps.default'];
   }
   return (
