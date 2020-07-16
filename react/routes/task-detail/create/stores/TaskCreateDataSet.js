@@ -62,10 +62,10 @@ export default function ({ levelType, triggerType, simpleRepeatIntervalUnit, exe
       },
     },
     fields: [
-      { name: 'id', type: 'number' },
+      { name: 'id', type: 'string' },
       { name: 'cronTime', defaultValue: ['请输入cron表达式'] },
       { name: 'service', type: 'string', label: '所属微服务', required: true, defaultValidationMessages: defaultValidationMessagesSelect },
-      { name: 'methodId', type: 'number', label: '可执行程序', required: true, defaultValidationMessages: defaultValidationMessagesSelect },
+      { name: 'methodId', type: 'string', label: '可执行程序', required: true, defaultValidationMessages: defaultValidationMessagesSelect },
       { name: 'name', type: 'string', label: '任务名称', validator: checkTaskName, required: true },
       { name: 'description', type: 'string', label: '任务描述', required: true },
       { name: 'startTime', type: 'dateTime', label: '起始日期', required: true },
