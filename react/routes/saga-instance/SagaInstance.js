@@ -25,12 +25,12 @@ const SagaInstance = withRouter(observer((props) => {
   });
 
   const init = async () => {
-    const { search } = props.location;
-    if (search.split('?')[1].split('&').find((i) => i.includes('sagaCode'))) {
-      const sagaId = search.split('?')[1].split('&').find((i) => i.includes('sagaCode')).split('=')[1];
+    const pattern = new URLSearchParams(window.location.hash);
+    const sagaId = pattern.get('sagaCode');
+    if (sagaId) {
       await instanceDataSet.query();
       if (instanceDataSet.length) {
-        instanceDataSet.queryDataSet.current.set('params', sagaId);
+        instanceDataSet.queryDataSet.current.set('sagaCode', sagaId);
         instanceDataSet.query();
       }
     } else {
