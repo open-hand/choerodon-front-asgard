@@ -15,6 +15,8 @@ const { TabPane } = Tabs;
 export default class SagaImg extends Component {
   state = this.getInitState();
 
+  intervals = null;
+
   getInitState() {
     const { instance, data } = this.props;
     return {
@@ -26,7 +28,6 @@ export default class SagaImg extends Component {
       activeTab: instance ? 'run' : '',
       jsonTitle: false, // 是否展示input output
       data,
-      intervals: [],
     };
   }
 
@@ -46,10 +47,8 @@ export default class SagaImg extends Component {
   }
 
   componentWillUnmount() {
-    const { intervals } = this.state;
-    clearInterval(intervals);
+    clearInterval(this.intervals);
   }
-
 
   getSidebarContainer() {
     const content = document.body.getElementsByClassName('c7n-pro-modal-active')[0];
@@ -101,7 +100,7 @@ export default class SagaImg extends Component {
   }
 
   reload() {
-    const { data: { id }, intervals } = this.state;
+    const { data: { id } } = this.state;
     const { loadDetailData } = this.props;
     loadDetailData(id).then((data) => {
       if (data.failed) {
@@ -111,7 +110,7 @@ export default class SagaImg extends Component {
         this.setState({ data });
         this.getLineData(tasks);
         if (status !== 'RUNNING') {
-          clearInterval(intervals);
+          clearInterval(this.intervals);
         }
       }
     });
@@ -252,16 +251,14 @@ export default class SagaImg extends Component {
   };
 
   handleRetry = () => {
-    const { task: { id }, intervals } = this.state;
+    const { task: { id } } = this.state;
     const { intl: { formatMessage }, retry } = this.props;
     retry(id).then((data) => {
       if (data.failed) {
         Choerodon.prompt(data.message);
       } else {
-        clearInterval(intervals);
-        this.setState({
-          intervals: setInterval(() => this.reload(), 2000),
-        });
+        clearInterval(this.intervals);
+        this.intervals = setInterval(() => this.reload(), 2000);
         this.reload();
         Choerodon.prompt(formatMessage({ id: `${intlPrefix}.task.retry.success` }));
       }
@@ -554,7 +551,7 @@ export default class SagaImg extends Component {
     return (
       <div className="c7n-saga-task-detail">
         <div className="c7n-saga-task-detail-title">
-          {<FormattedMessage id={`${intlPrefix}.task.detail.title`} />}
+          <FormattedMessage id={`${intlPrefix}.task.detail.title`} />
         </div>
         {this.renderTaskDetail()}
       </div>
