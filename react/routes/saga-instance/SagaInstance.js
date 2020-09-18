@@ -1,11 +1,15 @@
-/* eslint-disable max-classes-per-file */
+/* eslint-disable max-classes-per-file,
+jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */
+
 import React, { useState, useContext, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
-import { axios, Breadcrumb, StatusTag, Choerodon } from '@choerodon/boot';
+import {
+  axios, Breadcrumb, StatusTag, Choerodon, Content, Page,
+} from '@choerodon/boot';
 import { Button, Tooltip } from 'choerodon-ui';
 import { withRouter } from 'react-router-dom';
 import { Table, Modal } from 'choerodon-ui/pro';
-import { Content, Page } from '@choerodon/boot';
+
 import { FormattedMessage } from 'react-intl';
 import MouseOverWrapper from '../../components/mouseOverWrapper';
 import './style/saga-instance.scss';
@@ -15,7 +19,10 @@ import SagaImg from '../saga/SagaImg';
 const { Column } = Table;
 const modalKey = Modal.key();
 const SagaInstance = withRouter(observer((props) => {
-  const { instanceDataSet, intl, taskDataSet, intlPrefix, apiGetway, abort, unLock, retry, loadDetailData, AppState } = useContext(Store);
+  const {
+    instanceDataSet, intl, taskDataSet, intlPrefix, apiGetway,
+    abort, unLock, retry, loadDetailData, AppState,
+  } = useContext(Store);
   const [activeTab, setActiveTab] = useState('instance');
   const [statistics, setStatistics] = useState({
     COMPLETED_COUNT: 0,
@@ -67,7 +74,7 @@ const SagaInstance = withRouter(observer((props) => {
   };
 
   const renderTooltipTitle = (record) => {
-    const id = record.get('id');
+    const id = record.get('viewId');
     const sagaCode = record.get('sagaCode');
     const level = record.get('level');
     const description = record.get('description');
@@ -133,7 +140,8 @@ const SagaInstance = withRouter(observer((props) => {
     const title = ['completedCount', 'failedCount', 'runningCount', 'waitToBePulledCount'].map((key) => (
       <div style={{ display: 'flex' }}>
         <div style={{ width: 80 }}>
-          {intl.formatMessage({ id: `${intlPrefix}.${key}` })}：
+          {intl.formatMessage({ id: `${intlPrefix}.${key}` })}
+          ：
         </div>
         <div>
           {record.get(key)}
@@ -164,7 +172,14 @@ const SagaInstance = withRouter(observer((props) => {
         style: {
           width: 'calc(100% - 3.52rem)',
         },
-        children: <SagaImg data={data} instance abort={abort} unLock={unLock} retry={retry} loadDetailData={loadDetailData} />,
+        children: <SagaImg
+          data={data}
+          instance
+          abort={abort}
+          unLock={unLock}
+          retry={retry}
+          loadDetailData={loadDetailData}
+        />,
         footer: (okBtn) => okBtn,
         okText: <FormattedMessage id="close" />,
       });
@@ -179,7 +194,7 @@ const SagaInstance = withRouter(observer((props) => {
         className="c7n-asgard-table-cell-click"
         renderer={({ text, record }) => (
           <Tooltip title={renderTooltipTitle(record)}>
-            {`${text}-${record.get('id')}`}
+            {`${text}-${record.get('viewId')}`}
           </Tooltip>
         )}
         onCell={({ record }) => ({
@@ -272,7 +287,11 @@ const SagaInstance = withRouter(observer((props) => {
           <div className="c7n-saga-status-text"><FormattedMessage id="saga-instance.overview" /></div>
           <div className="c7n-saga-status-wrap">
             {istStatusType.map((item) => (
-              <div onClick={() => handleStatusClick(item)} key={item.toLowerCase()} className={`c7n-saga-status-num c7n-saga-status-${item.toLowerCase()}`}>
+              <div
+                onClick={() => handleStatusClick(item)}
+                key={item.toLowerCase()}
+                className={`c7n-saga-status-num c7n-saga-status-${item.toLowerCase()}`}
+              >
                 <div>{statistics[`${item}_COUNT`] || 0}</div>
                 <div><FormattedMessage id={item.toLowerCase()} /></div>
               </div>
@@ -283,7 +302,8 @@ const SagaInstance = withRouter(observer((props) => {
       <Content style={{ padding: 0 }}>
         <div className="c7n-saga-instance-btns">
           <span className="text">
-            <FormattedMessage id={`${intlPrefix}.view`} />：
+            <FormattedMessage id={`${intlPrefix}.view`} />
+            ：
           </span>
           <Button
             onClick={loadAllData}
