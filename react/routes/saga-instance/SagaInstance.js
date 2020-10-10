@@ -67,7 +67,7 @@ const SagaInstance = withRouter(observer((props) => {
   };
 
   const renderTooltipTitle = (record) => {
-    const id = record.get('id');
+    const id = record.get('viewId');
     const sagaCode = record.get('sagaCode');
     const level = record.get('level');
     const description = record.get('description');
@@ -80,7 +80,7 @@ const SagaInstance = withRouter(observer((props) => {
           <div className="c7n-saga-instance-table-tooltip-item-title">
             <FormattedMessage id="saga-instance.saga.instance.id" />
           </div>
-          <div className="c7n-saga-instance-table-tooltip-item-value">{id}</div>
+          <div className="c7n-saga-instance-table-tooltip-item-value">#{id}</div>
         </div>
         <div className="c7n-saga-instance-table-tooltip-item">
           <div className="c7n-saga-instance-table-tooltip-item-title">
@@ -179,7 +179,7 @@ const SagaInstance = withRouter(observer((props) => {
         className="c7n-asgard-table-cell-click"
         renderer={({ text, record }) => (
           <Tooltip title={renderTooltipTitle(record)}>
-            {`${text}-${record.get('id')}`}
+            {`${text}-${record.get('viewId')}`}
           </Tooltip>
         )}
         onCell={({ record }) => ({
