@@ -1,18 +1,17 @@
 {
   "name": "@choerodon/asgard",
   "routeName": "asgard",
-  "version": "0.23.4",
+  "version": "0.24.0",
   "description": "",
   "main": "./lib/index.js",
   "files": [
     "lib"
   ],
   "peerDependencies": {
-    "@choerodon/boot": "0.21.4",
-    "@choerodon/master": "0.23.0"
+    "@choerodon/boot": "0.22.0",
+    "@choerodon/master": "0.24.0"
   },
   "dependencies": {
-    "choerodon-ui": "^0.8.x",
     "mobx-react-lite": "^1.4.1",
     "js-beautify": "^1.10.2",
     "react-codemirror": "^1.0.0"
@@ -20,10 +19,16 @@
   "devDependencies": {
     "@choerodon/boot": "0.21.4",
     "@choerodon/master": "0.23.0",
-    "babel-preset-env": "^1.7.0",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.1",
-    "through2": "^2.0.3"
+    "babel-eslint": "^8.1.0",
+    "babel-preset-c7n-app": "^0.0.1",
+    "choerodon-ui": "0.8.x",
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-c7n-app": "^0.0.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.5",
+    "eslint-plugin-react-hooks": "^4.0.8"
   },
   "scripts": {
     "start": "choerodon-front-boot start --config ./react/config.js",
