@@ -26,7 +26,20 @@ const TaskCreate = observer(() => {
   );
   modal.handleOk(async () => {
     const params = {};
-    paramDataSet.forEach((r) => { params[r.get('name')] = r.get('defaultValue'); });
+    function transType(ds) {
+      const types = ds.get('type');
+      const value = ds.get('defaultValue');
+      const trans = {
+        Boolean: Boolean(value),
+        Integer: parseInt(value, 10),
+        // eslint-disable-next-line no-undef
+        Long: BigInt(value),
+        Double: parseFloat(value),
+        String: String(value),
+      };
+      return trans[types];
+    }
+    paramDataSet.forEach((r) => { params[r.get('name')] = transType(r); });
     taskCreateDataSet.current.set('params', params);
     if (await taskCreateDataSet.submit()) {
       onOk();
@@ -79,8 +92,8 @@ const TaskCreate = observer(() => {
     taskCreateDataSet.current.set('methodId', undefined);
   }
   function handleChangeService(e) {
-    if (taskCreateDataSet.current.get('methodId') && taskCreateDataSet.current.get('methodId') !== null) { 
-      taskCreateDataSet.current.set('methodId', undefined); 
+    if (taskCreateDataSet.current.get('methodId') && taskCreateDataSet.current.get('methodId') !== null) {
+      taskCreateDataSet.current.set('methodId', undefined);
     }
   }
   return (
