@@ -148,7 +148,7 @@ const Detail = () => {
                         <li className={classnames('c7n-task-detail-row-inform-person', { 'c7n-task-detail-row-hide': !info.notifyUser.creator })}>
                           {formatMessage({ id: `${intlPrefix}.creator` })}
                           <span style={{ marginLeft: '10px' }}>
-                            {info.notifyUser.creator?.ldap ? `${info.notifyUser.creator.loginName}(${info.notifyUser.creator.realName})`:`${info.notifyUser.creator.loginName}(${info.notifyUser.creator.email})`}
+                            {info.notifyUser.creator?.ldap ? `${info.notifyUser.creator?.loginName}(${info.notifyUser.creator?.realName})`:`${info.notifyUser.creator?.loginName}(${info.notifyUser.creator?.email})`}
                           </span>
                         </li>
                         <li className={classnames('c7n-task-detail-row-inform-person', { 'c7n-task-detail-row-hide': !info.notifyUser.administrator })}>
