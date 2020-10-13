@@ -87,7 +87,7 @@ const SagaInstance = withRouter(observer((props) => {
           <div className="c7n-saga-instance-table-tooltip-item-title">
             <FormattedMessage id="saga-instance.saga.instance.id" />
           </div>
-          <div className="c7n-saga-instance-table-tooltip-item-value">{id}</div>
+          <div className="c7n-saga-instance-table-tooltip-item-value">#{id}</div>
         </div>
         <div className="c7n-saga-instance-table-tooltip-item">
           <div className="c7n-saga-instance-table-tooltip-item-title">

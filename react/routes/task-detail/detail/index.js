@@ -147,7 +147,9 @@ const Detail = () => {
                       <ul style={{ paddingLeft: '0' }}>
                         <li className={classnames('c7n-task-detail-row-inform-person', { 'c7n-task-detail-row-hide': !info.notifyUser.creator })}>
                           {formatMessage({ id: `${intlPrefix}.creator` })}
-                          <span style={{ marginLeft: '10px' }}>{info.notifyUser.creator ? info.notifyUser.creator.loginName : null}{info.notifyUser.creator ? info.notifyUser.creator.realName : null}</span>
+                          <span style={{ marginLeft: '10px' }}>
+                            {info.notifyUser.creator?.ldap ? `${info.notifyUser.creator?.realName}(${info.notifyUser.creator?.loginName})`:`${info.notifyUser.creator?.realName}(${info.notifyUser.creator?.email})`}
+                          </span>
                         </li>
                         <li className={classnames('c7n-task-detail-row-inform-person', { 'c7n-task-detail-row-hide': !info.notifyUser.administrator })}>
                           {level}{formatMessage({ id: `${intlPrefix}.manager` })}
@@ -157,9 +159,9 @@ const Detail = () => {
                           {info.notifyUser.assigner.length ? (
                             <div className="c7n-task-detail-row-inform-person-informlist-name-container">
                               {
-                                info.notifyUser.assigner.map((item) => (
-                                  <div key={item.loginName}>
-                                    <span>{item.loginName}{item.realName}</span>
+                                info.notifyUser.assigner.map(({loginName, realName, ldap, email}) => (
+                                  <div key={loginName}>
+                                    <span>{realName}({ldap ? loginName : email})</span>
                                     <span>、</span>
                                   </div>
                                 ))
