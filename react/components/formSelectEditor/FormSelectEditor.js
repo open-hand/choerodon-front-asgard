@@ -6,7 +6,7 @@ import { observer } from 'mobx-react-lite';
 import Store from './stores';
 import './index.less';
 
-export default observer(({ name, optionDataSetConfig, optionDataSet, record, children, addButton, maxDisable, canDeleteAll = true, idField, alwaysRequired = false, required = false }) => {
+export default observer(({ name, optionDataSetConfig, optionDataSet, record, children, addButton, maxDisable, canDeleteAll = true, idField, alwaysRequired = false, required = false, changeDsStore }) => {
   const formElement = useRef(null);
 
   async function handleSubmit({ dataSet, data }) {
@@ -94,6 +94,7 @@ export default observer(({ name, optionDataSetConfig, optionDataSet, record, chi
     record.set('dirty', true);
     runInAction(() => {
       dsStore.splice(index, 1);
+      changeDsStore && changeDsStore(dsStore);
       record.set(name, arr.slice());
     });
   }
@@ -107,6 +108,7 @@ export default observer(({ name, optionDataSetConfig, optionDataSet, record, chi
           }
           if (!dsStore.get(index)) {
             dsStore.set(index, optionDataSet || new DataSet(optionDataSetConfig));
+            changeDsStore && changeDsStore(dsStore);
           }
           return [
             React.createElement(children, { 

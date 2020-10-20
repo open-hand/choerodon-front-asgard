@@ -5,7 +5,6 @@ import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
 import { Divider } from 'choerodon-ui';
 import { Form, Select, Table, TextField, TextArea, DateTimePicker, SelectBox, NumberField, Tooltip, Icon } from 'choerodon-ui/pro';
-import { Popover } from 'choerodon-ui';
 import Store, { StoreProvider } from './stores';
 import FormSelectEditor from '../../../components/formSelectEditor';
 import OrgUserDataSetConfig from './stores/OrgUserDataSet';
@@ -14,7 +13,7 @@ import './index.less';
 const { Option } = Select;
 const { Column } = Table;
 const TaskCreate = observer(() => {
-  const { methodDataSet, taskCreateDataSet, paramDataSet, dsStore, prefixCls, id, intl, type, modal, intlPrefix, onOk } = useContext(Store);
+  const { methodDataSet, taskCreateDataSet, paramDataSet, mainStore, prefixCls, id, intl, type, modal, intlPrefix, onOk } = useContext(Store);
   const microservice = Array.from(new Set(methodDataSet.map((r) => r.get('service'))));
   const executeStrategyHelp = (
     <span>超时策略：
@@ -30,14 +29,14 @@ const TaskCreate = observer(() => {
       const types = ds.get('type');
       const value = ds.get('defaultValue');
       const trans = {
-        Boolean: Boolean(value),
-        Integer: parseInt(value, 10),
+        Boolean,
+        Integer: parseInt,
         // eslint-disable-next-line no-undef
-        Long: BigInt(value),
-        Double: parseFloat(value),
-        String: String(value),
+        Long: BigInt,
+        Double: parseFloat,
+        String,
       };
-      return trans[types];
+      return types === 'Integer' ? parseInt(value, 10) : trans[types](value);
     }
     paramDataSet.forEach((r) => { params[r.get('name')] = transType(r); });
     taskCreateDataSet.current.set('params', params);
@@ -188,7 +187,7 @@ const TaskCreate = observer(() => {
           <Form dataSet={taskCreateDataSet}>
             <SelectBox name="notifyUser" />
           </Form>
-          <div style={{ display: taskCreateDataSet.current && taskCreateDataSet.current.get('notifyUser').includes('assigner') ? 'block' : 'none' }}>
+          {taskCreateDataSet.current && taskCreateDataSet.current.get('notifyUser').includes('assigner') && (
             <FormSelectEditor
               record={taskCreateDataSet.current}
               optionDataSetConfig={OrgUserDataSetConfig({ id, type })}
@@ -196,7 +195,8 @@ const TaskCreate = observer(() => {
               addButton="添加其他指定用户"
               alwaysRequired
               canDeleteAll={false}
-              dsStore={dsStore}
+              dsStore={mainStore.getDsStore}
+              changeDsStore={mainStore.setDsStore}
             >
               {((itemProps) => (
                 <Select
@@ -210,7 +210,7 @@ const TaskCreate = observer(() => {
                 />
               ))}
             </FormSelectEditor>
-          </div>
+          )}
         </div>
       </div>
     </React.Fragment>
