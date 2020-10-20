@@ -6,6 +6,7 @@ import { injectIntl } from 'react-intl';
 import MethodDataSet from './MethodDataSet';
 import TaskCreateDataSet from './TaskCreateDataSet';
 import ParamDataSet from './ParamDataSet';
+import useStore from './useStore';
 
 const Store = createContext();
 
@@ -14,7 +15,7 @@ export default Store;
 export const StoreProvider = injectIntl(inject('AppState')(
   (props) => {
     const { AppState: { currentMenuType: { type, id, organizationId } }, intl, children } = props;
-    const dsStore = useMemo(() => [], []);
+    const mainStore = useStore();
     const levelType = type === 'site' ? '' : `/${type}s/${id}`;
     const triggerType = [
       { meaning: '简单任务', value: 'simple-trigger' },
@@ -50,7 +51,7 @@ export const StoreProvider = injectIntl(inject('AppState')(
       paramDataSet,
       prefixCls: 'c7n-task-create',
       levelType,
-      dsStore,
+      mainStore,
       organizationId,
     };
     return (
