@@ -12,13 +12,14 @@ export default ({ id = 0, type }) => {
     selection: 'single',
     paging: false,
     transport: {
-      read: {
+      read: ({ data }) => ({
         url: getQueryUrl(),
         method: 'get',
         params: {
           user_name: '',
+          exact_match_flag: true,
         },
-      },
+      }),
     },
     fields: [
       { name: 'realName', type: 'string' },
