@@ -13,10 +13,10 @@
     "react-codemirror": "^1.0.0"
   },
   "devDependencies": {
-    "@choerodon/boot": "0.22.0",
-    "@choerodon/master": "0.24.0",
+    "@choerodon/boot": "0.23.0-test",
+    "@choerodon/master": "0.25.0",
     "babel-eslint": "^8.1.0",
-    "babel-preset-c7n-app": "^0.0.1",
+    "babel-preset-c7n": "^0.0.1",
     "choerodon-ui": "0.8.x",
     "eslint": "^7.6.0",
     "eslint-config-airbnb": "^18.2.0",
