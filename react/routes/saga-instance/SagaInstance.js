@@ -74,7 +74,6 @@ const SagaInstance = withRouter(observer((props) => {
   };
 
   const renderTooltipTitle = (record) => {
-    const id = record.get('viewId');
     const sagaCode = record.get('sagaCode');
     const level = record.get('level');
     const description = record.get('description');
@@ -83,12 +82,6 @@ const SagaInstance = withRouter(observer((props) => {
     const endTime = record.get('endTime');
     return (
       <div>
-        <div className="c7n-saga-instance-table-tooltip-item">
-          <div className="c7n-saga-instance-table-tooltip-item-title">
-            <FormattedMessage id="saga-instance.saga.instance.id" />
-          </div>
-          <div className="c7n-saga-instance-table-tooltip-item-value">#{id}</div>
-        </div>
         <div className="c7n-saga-instance-table-tooltip-item">
           <div className="c7n-saga-instance-table-tooltip-item-title">
             <FormattedMessage id="saga-instance.saga.instance.sagaCode" />
@@ -189,6 +182,7 @@ const SagaInstance = withRouter(observer((props) => {
   };
   const renderTable = () => (
     <Table dataSet={instanceDataSet} key="instance">
+      <Column name="searchId" tooltip="overflow" className="c7n-asgard-table-cell" />
       <Column
         name="sagaCode"
         className="c7n-asgard-table-cell-click"
@@ -213,7 +207,7 @@ const SagaInstance = withRouter(observer((props) => {
       />
       <Column name="startTime" className="c7n-asgard-table-cell" />
       <Column name="refType" className="c7n-asgard-table-cell" />
-      <Column name="refId" className="c7n-asgard-table-cell" />
+      <Column name="refId" tooltip="overflow" className="c7n-asgard-table-cell" />
       <Column name="progress" renderer={renderProgress} />
     </Table>
   );

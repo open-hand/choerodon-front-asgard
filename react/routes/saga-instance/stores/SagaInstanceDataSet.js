@@ -1,7 +1,10 @@
 import { DataSet } from 'choerodon-ui/pro';
 
-export default ({ id = 0, apiGetway, intl, intlPrefix }) => {
+export default ({
+  id = 0, apiGetway, intl, intlPrefix,
+}) => {
   const sagaCode = intl.formatMessage({ id: 'saga-instance.saga.instance' });
+  const searchId = intl.formatMessage({ id: `${intlPrefix}.searchId` });
   const status = intl.formatMessage({ id: `${intlPrefix}.status` });
   const startTime = intl.formatMessage({ id: `${intlPrefix}.start.time` });
   const refType = intl.formatMessage({ id: `${intlPrefix}.reftype` });
@@ -30,6 +33,7 @@ export default ({ id = 0, apiGetway, intl, intlPrefix }) => {
       },
     },
     fields: [
+      { name: 'searchId', label: searchId },
       { name: 'sagaCode', type: 'string', label: sagaCode },
       { name: 'status', type: 'string', label: status },
       { name: 'startTime', type: 'string', label: startTime },
@@ -38,8 +42,11 @@ export default ({ id = 0, apiGetway, intl, intlPrefix }) => {
       { name: 'progress', type: 'string', label: progress },
     ],
     queryFields: [
+      { name: 'searchId', label: searchId },
       { name: 'sagaCode', type: 'string', label: sagaCode },
-      { name: 'status', type: 'string', label: status, options: statusDataSet },
+      {
+        name: 'status', type: 'string', label: status, options: statusDataSet,
+      },
       { name: 'refType', type: 'string', label: refType },
       { name: 'refId', type: 'string', label: refId },
     ],
