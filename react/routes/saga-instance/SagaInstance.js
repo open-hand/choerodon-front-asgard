@@ -9,6 +9,8 @@ import {
 import { Button, Tooltip } from 'choerodon-ui';
 import { withRouter } from 'react-router-dom';
 import { Table, Modal } from 'choerodon-ui/pro';
+import { ThemeWrap } from '@choerodon/master';
+import classnames from 'classnames';
 
 import { FormattedMessage } from 'react-intl';
 import MouseOverWrapper from '../../components/mouseOverWrapper';
@@ -23,6 +25,7 @@ const SagaInstance = withRouter(observer((props) => {
     instanceDataSet, intl, taskDataSet, intlPrefix, apiGetway,
     abort, unLock, retry, loadDetailData, AppState,
   } = useContext(Store);
+
   const [activeTab, setActiveTab] = useState('instance');
   const [statistics, setStatistics] = useState({
     COMPLETED_COUNT: 0,
@@ -47,6 +50,9 @@ const SagaInstance = withRouter(observer((props) => {
 
   useEffect(() => {
     init();
+    if (AppState.getCurrentTheme === 'theme4') {
+      import('./style/saga-theme4.less');
+    }
   }, []);
 
   useEffect(() => {

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="130px" height="36px" viewBox="0 0 130 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bg</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="130" height="36" rx="4"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="147.571966%" id="linearGradient-3">
+            <stop stop-color="#84C3FF" offset="0%"></stop>
+            <stop stop-color="#4D90FE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="UI优化" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="事务管理" transform="translate(-1127.000000, -138.000000)">
+            <g id="编组-18" transform="translate(855.000000, 138.000000)">
+                <g id="bg" transform="translate(272.000000, 0.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="矩形" fill-opacity="0.16" fill="#4D90FE" xlink:href="#path-1"></use>
+                    <path d="M4,0 L4,0 L4,0 L4,36 C1.790861,36 2.705415e-16,34.209139 0,32 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 Z" id="矩形" fill="url(#linearGradient-3)" mask="url(#mask-2)"></path>
+                    <g id="history_black_24dp" mask="url(#mask-2)">
+                        <g transform="translate(100.500000, 8.000000)">
+                            <polygon id="路径" fill="none" points="0 0 36 0 36 36 0 36"></polygon>
+                            <path d="M19.5,4.5 C12.045,4.5 6,10.545 6,18 L1.5,18 L7.335,23.835 L7.44,24.045 L13.5,18 L9,18 C9,12.195 13.695,7.5 19.5,7.5 C25.305,7.5 30,12.195 30,18 C30,23.805 25.305,28.5 19.5,28.5 C16.605,28.5 13.98,27.315 12.09,25.41 L9.96,27.54 C12.405,29.985 15.765,31.5 19.5,31.5 C26.955,31.5 33,25.455 33,18 C33,10.545 26.955,4.5 19.5,4.5 Z M18,12 L18,19.5 L24.42,23.31 L25.5,21.495 L20.25,18.375 L20.25,12 L18,12 Z" id="形状" fill-opacity="0.16" fill="#4D90FE" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

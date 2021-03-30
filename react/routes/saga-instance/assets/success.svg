@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="133px" height="36px" viewBox="0 0 133 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bg</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="133" height="36" rx="4"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="146.141567%" id="linearGradient-3">
+            <stop stop-color="#42E3DF" offset="0%"></stop>
+            <stop stop-color="#1FC2BB" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="UI优化" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="事务管理" transform="translate(-976.000000, -138.000000)">
+            <g id="编组-18" transform="translate(855.000000, 138.000000)">
+                <g id="bg" transform="translate(121.000000, 0.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="矩形" fill-opacity="0.16" fill="#1FC2BB" xlink:href="#path-1"></use>
+                    <path d="M4,0 L4,0 L4,0 L4,36 C1.790861,36 2.705415e-16,34.209139 0,32 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 Z" id="矩形" fill="url(#linearGradient-3)" mask="url(#mask-2)"></path>
+                    <g id="check_circle_outline_black_24dp" mask="url(#mask-2)">
+                        <g transform="translate(104.000000, 8.000000)" id="形状">
+                            <path d="M0,0 L36,0 L36,36 L0,36 L0,0 Z M0,0 L36,0 L36,36 L0,36 L0,0 Z" fill="none"></path>
+                            <path d="M24.885,11.37 L15,21.255 L9.615,15.885 L7.5,18 L15,25.5 L27,13.5 L24.885,11.37 Z M18,3 C9.72,3 3,9.72 3,18 C3,26.28 9.72,33 18,33 C26.28,33 33,26.28 33,18 C33,9.72 26.28,3 18,3 Z M18,30 C11.37,30 6,24.63 6,18 C6,11.37 11.37,6 18,6 C24.63,6 30,11.37 30,18 C30,24.63 24.63,30 18,30 Z" fill-opacity="0.16" fill="#1FC2BB" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

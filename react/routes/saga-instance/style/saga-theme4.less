@@ -1,0 +1,88 @@
+body[data-theme="theme4"] {
+  .c7n-saga-instance-btns {
+    margin-top: 18px;
+    width: fit-content;
+
+    background: #f5f6fa;
+    border-radius: 5px;
+    padding: 4px;
+    margin-left: 22px;
+    > span.text {
+      display: none;
+    }
+    > button {
+      &.active {
+        background-color: #fff !important;
+      }
+      &:not(&.active) {
+        color: rgba(58, 52, 95, 0.87);
+      }
+    }
+  }
+  .c7n-saga-instance-title {
+    .c7n-saga-status {
+      &-content {
+        display: flex;
+        align-items: center;
+        top: calc(100% + 32px);
+        right: 44px;
+      }
+      &-text {
+        font-size: 13px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 500;
+        color: rgba(15, 19, 88, 0.65);
+        padding-bottom: 0;
+      }
+      &-wrap {
+        margin-left: 4px;
+        .c7n-saga-status-num + .c7n-saga-status-num {
+          margin-left: 14px;
+        }
+      }
+      &-num {
+        border: none;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 133px;
+        height: 36px;
+        padding-right: 0;
+        padding-left: 0;
+        background-size: cover;
+        > div {
+          &:first-of-type {
+            font-size: 20px;
+            font-family: DINAlternate-Bold, DINAlternate;
+            font-weight: bold;
+            margin-left: 2px;
+          }
+          &:nth-of-type(2) {
+            font-size: 12px;
+            font-family: PingFangSC-Medium, PingFang SC;
+            font-weight: 500;
+          }
+        }
+      }
+      &-completed {
+        background-image: url(../assets/success.svg);
+        > div {
+          color: #1fc2bb;
+        }
+      }
+      &-running {
+        background-image: url(../assets/running.svg);
+        > div {
+          color: rgba(77, 144, 254, 1);
+        }
+      }
+      &-failed {
+        background-image: url(../assets/fail.svg);
+        > div {
+          color: rgba(253, 114, 156, 1);
+        }
+      }
+    }
+  }
+}
