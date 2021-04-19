@@ -157,7 +157,7 @@
     color: #000;
 
     &-title {
-      font-family: PingFangSC-Regular;
+      font-family: PingFangSC-Regular, sans-serif;
       font-size: 14px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.12);
       padding-bottom: 5px;
@@ -167,7 +167,7 @@
     }
 
     &-content {
-      font-family: PingFangSC-Regular;
+      font-family: PingFangSC-Regular, sans-serif;
       font-size: 14px;
       line-height: 20px;
 
@@ -222,7 +222,7 @@
   }
 
   &-task-btns {
-    font-family: PingFangSC-Medium;
+    font-family: PingFangSC-Medium, sans-serif;
     font-size: 13px;
     color: #3f51b5;
     line-height: 15px;
