@@ -1,6 +1,8 @@
 import { DataSet } from 'choerodon-ui/pro';
 
-export default ({ id = 0, apiGetway, intl, intlPrefix }) => {
+export default ({
+  id = 0, apiGetway, intl, intlPrefix,
+}) => {
   const taskInstanceCode = intl.formatMessage({ id: 'global.saga.task.code' });
   const status = intl.formatMessage({ id: `${intlPrefix}.status` });
   const sagaInstanceCode = intl.formatMessage({ id: 'global.saga-instance.saga' });
@@ -16,14 +18,15 @@ export default ({ id = 0, apiGetway, intl, intlPrefix }) => {
       value: 'FAILED',
       meaning: '失败',
     }, {
-      value: 'COMPLETED' || 'NON_CONSUMER',
+      // value: 'COMPLETED' || 'NON_CONSUMER',
+      value: 'COMPLETED',
       meaning: '完成',
     }, {
       value: 'WAIT_TO_BE_PULLED',
       meaning: '等待被拉取',
     }],
   });
-  
+
   return {
     autoQuery: true,
     selection: false,
@@ -36,16 +39,18 @@ export default ({ id = 0, apiGetway, intl, intlPrefix }) => {
     fields: [
       { name: 'taskInstanceCode', type: 'string', label: taskInstanceCode },
       { name: 'status', type: 'string', label: status },
-      { name: 'sagaInstanceCode', type: 'string', label: sagaInstanceCode },      
-      { name: 'description', type: 'string', label: description },      
-      { name: 'plannedStartTime', type: 'string', label: plannedStartTime },      
-      { name: 'actualEndTime', type: 'string', label: actualEndTime },      
-      { name: 'retryCount', type: 'string', label: retryCount },      
-    ],    
+      { name: 'sagaInstanceCode', type: 'string', label: sagaInstanceCode },
+      { name: 'description', type: 'string', label: description },
+      { name: 'plannedStartTime', type: 'string', label: plannedStartTime },
+      { name: 'actualEndTime', type: 'string', label: actualEndTime },
+      { name: 'retryCount', type: 'string', label: retryCount },
+    ],
     queryFields: [
       { name: 'taskInstanceCode', type: 'string', label: taskInstanceCode },
-      { name: 'status', type: 'string', label: status, options: statusDataSet },
-      { name: 'sagaInstanceCode', type: 'string', label: sagaInstanceCode },  
+      {
+        name: 'status', type: 'string', label: status, options: statusDataSet,
+      },
+      { name: 'sagaInstanceCode', type: 'string', label: sagaInstanceCode },
     ],
   };
 };

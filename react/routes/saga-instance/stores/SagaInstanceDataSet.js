@@ -18,7 +18,8 @@ export default ({
       value: 'FAILED',
       meaning: '失败',
     }, {
-      value: 'COMPLETED' || 'NON_CONSUMER',
+      // value: 'COMPLETED' || 'NON_CONSUMER',
+      value: 'COMPLETED',
       meaning: '完成',
     }],
   });
