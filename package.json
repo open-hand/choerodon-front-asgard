@@ -8,14 +8,13 @@
     "lib"
   ],
   "dependencies": {
-    "mobx-react-lite": "^1.4.1",
     "js-beautify": "^1.10.2",
+    "mobx-react-lite": "^1.4.1",
     "react-codemirror": "^1.0.0"
   },
   "devDependencies": {
     "@choerodon/boot": "0.23.1",
-    "@choerodon/master": "0.25.3",
-    "@choerodon/components":"0.0.1",
+    "@choerodon/master": "0.26.0",
     "babel-eslint": "^8.1.0",
     "babel-preset-c7n": "^0.0.1",
     "eslint": "^7.6.0",
