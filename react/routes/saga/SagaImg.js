@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon, Tabs } from 'choerodon-ui';
+import { Icon, Tabs, Tooltip } from 'choerodon-ui';
 import { Content, Choerodon } from '@choerodon/boot';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import classnames from 'classnames';
@@ -435,11 +435,13 @@ export default class SagaImg extends Component {
                   <pre style={{ maxHeight: '350px' }}><code>{failed.value.trim()}</code></pre>
                   <textarea id="failed" />
                   {failed.value && (
-                    <Icon
-                      type="library_books"
-                      className="copy-icon"
-                      onClick={this.handleCopy}
-                    />
+                    <Tooltip title={formatMessage({ id: 'copy' })}>
+                      <Icon
+                        type="library_books"
+                        className="copy-icon"
+                        onClick={this.handleCopy}
+                      />
+                    </Tooltip>
                   )}
                 </div>
               </div>
