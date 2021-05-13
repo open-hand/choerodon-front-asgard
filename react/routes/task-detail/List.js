@@ -4,9 +4,8 @@ import { Button } from 'choerodon-ui';
 import { Modal, Table } from 'choerodon-ui/pro';
 import { FormattedMessage } from 'react-intl';
 import {
-  Content, Header, Page, Breadcrumb, Permission, Action, axios, StatusTag, Choerodon,
+  Content, Header, Page, Breadcrumb, Permission, Action, axios, StatusTag, Choerodon, HeaderButtons,
 } from '@choerodon/boot';
-import { HeaderButtons } from '@choerodon/master';
 import './List.less';
 import '../../common/ConfirmModal.scss';
 import MouseOverWrapper from '../../components/mouseOverWrapper';
@@ -215,19 +214,21 @@ const List = observer(() => {
   return (
     <Page service={normalService}>
       <Header>
-        <HeaderButtons items={[{
-          permissions: createService,
-          name: intl.formatMessage({ id: `${intlPrefix}.create` }),
-          icon: 'playlist_add',
-          handler: createTask,
-          display: true,
-        }, {
-          permissions: methodService,
-          name: '可执行程序',
-          icon: 'classname',
-          handler: openExecutableProgram,
-          display: true,
-        }]}
+        <HeaderButtons
+          items={[{
+            permissions: createService,
+            name: intl.formatMessage({ id: `${intlPrefix}.create` }),
+            icon: 'playlist_add',
+            handler: createTask,
+            display: true,
+          }, {
+            permissions: methodService,
+            name: '可执行程序',
+            icon: 'classname',
+            handler: openExecutableProgram,
+            display: true,
+          }]}
+          showClassName={false}
         />
       </Header>
       <Breadcrumb />
