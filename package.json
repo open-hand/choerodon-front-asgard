@@ -7,6 +7,10 @@
   "files": [
     "lib"
   ],
+  "resolutions": {
+    "react": "16.14.0",
+    "react-dom": "16.14.0"
+  },
   "dependencies": {
     "js-beautify": "^1.10.2",
     "mobx-react-lite": "^1.4.1",

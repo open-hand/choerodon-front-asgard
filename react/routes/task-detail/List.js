@@ -1,9 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Button } from 'choerodon-ui';
 import { Modal, Table } from 'choerodon-ui/pro';
 import { FormattedMessage } from 'react-intl';
-import { Content, Header, Page, Breadcrumb, Permission, Action, axios, StatusTag, Choerodon } from '@choerodon/boot';
+import {
+  Content, Header, Page, Breadcrumb, Permission, Action, axios, StatusTag, Choerodon,
+} from '@choerodon/boot';
+import { HeaderButtons } from '@choerodon/master';
 import './List.less';
 import '../../common/ConfirmModal.scss';
 import MouseOverWrapper from '../../components/mouseOverWrapper';
@@ -50,8 +53,13 @@ function getPermission(AppState) {
 }
 const { Column } = Table;
 const List = observer(() => {
-  const { AppState, intl, intlPrefix, taskDataSet, taskdetail, levelType } = useContext(Store);
-  const { deleteService, detailService, createService, disableService, enableService, normalService, methodService } = getPermission(AppState);
+  const {
+    AppState, intl, intlPrefix, taskDataSet, taskdetail, levelType,
+  } = useContext(Store);
+  const {
+    deleteService, detailService, createService, disableService, enableService,
+    normalService, methodService,
+  } = getPermission(AppState);
   function getLevelType(type, id) {
     return (type === 'site' ? '' : `/${type}s/${id}`);
   }
@@ -88,7 +96,7 @@ const List = observer(() => {
         action: handleAble.bind(this, record),
         text: <FormattedMessage id="disable" />,
       }];
-    } else if (status === 'DISABLE') {
+    } if (status === 'DISABLE') {
       return [{
         service: enableService,
         action: handleAble.bind(this, record),
@@ -97,7 +105,6 @@ const List = observer(() => {
     }
     return [];
   }
-
 
   const handleCreateOk = () => {
     taskDataSet.query();
@@ -126,7 +133,6 @@ const List = observer(() => {
     });
   };
 
-
   function createTask() {
     Modal.open({
       title: <FormattedMessage id={`${intlPrefix}.create`} />,
@@ -153,7 +159,6 @@ const List = observer(() => {
     });
   }
 
-
   /**
    * 开启侧边栏
    * @param selectType create/detail
@@ -175,12 +180,15 @@ const List = observer(() => {
     });
   };
 
-
   const renderName = ({ text, record }) => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <MouseOverWrapper text={text} width={0.2}>
         <Permission service={detailService} noAccessChildren={text}>
-          <span className="c7n-asgard-table-cell-click" onClick={openDetail.bind(this, record)}>
+          <span
+            className="c7n-asgard-table-cell-click"
+            onClick={openDetail.bind(this, record)}
+            role="none"
+          >
             {text}
           </span>
         </Permission>
@@ -203,32 +211,29 @@ const List = observer(() => {
       colorCode={status}
     />
   );
+
   return (
-    <Page
-      service={normalService}
-    >
-      <Header
-        title={<FormattedMessage id={`${intlPrefix}.header.title`} />}
-      >
-        <Permission service={createService}>
-          <Button
-            icon="playlist_add"
-            onClick={createTask}
-          >
-            <FormattedMessage id={`${intlPrefix}.create`} />
-          </Button>
-        </Permission>
-        <Permission service={methodService}>
-          <Button
-            icon="classname"
-            onClick={openExecutableProgram}
-          >
-            可执行程序
-          </Button>
-        </Permission>
+    <Page service={normalService}>
+      <Header>
+        <HeaderButtons items={[{
+          permissions: createService,
+          name: intl.formatMessage({ id: `${intlPrefix}.create` }),
+          icon: 'playlist_add',
+          handler: createTask,
+          display: true,
+          group: 1,
+        }, {
+          permissions: methodService,
+          name: '可执行程序',
+          icon: 'classname',
+          handler: openExecutableProgram,
+          display: true,
+          group: 1,
+        }]}
+        />
       </Header>
       <Breadcrumb />
-      <Content style={{ paddingTop: 0 }}>
+      <Content>
         <Table
           dataSet={taskDataSet}
         >
