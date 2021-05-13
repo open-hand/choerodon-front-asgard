@@ -11,7 +11,9 @@ import './index.less';
 const { TabPane } = Tabs;
 const { Column } = Table;
 const Detail = () => {
-  const { intl: { formatMessage }, intlPrefix, logDataSet, info, AppState } = useContext(Store);
+  const {
+    intl: { formatMessage }, intlPrefix, logDataSet, info, AppState,
+  } = useContext(Store);
   const { currentMenuType: { type } } = AppState;
   const level = `${type === 'site' ? '平台' : '组织'}`;
   const [showLog, setShowLog] = useState(false);
@@ -119,7 +121,7 @@ const Detail = () => {
     />
   );
   return (
-    <Content
+    <div
       className="sidebar-content"
     >
       <Tabs activeKey={showLog ? 'log' : 'info'} onChange={handleTabChange}>
@@ -148,20 +150,28 @@ const Detail = () => {
                         <li className={classnames('c7n-task-detail-row-inform-person', { 'c7n-task-detail-row-hide': !info.notifyUser.creator })}>
                           {formatMessage({ id: `${intlPrefix}.creator` })}
                           <span style={{ marginLeft: '10px' }}>
-                            {info.notifyUser.creator?.ldap ? `${info.notifyUser.creator?.realName}(${info.notifyUser.creator?.loginName})`:`${info.notifyUser.creator?.realName}(${info.notifyUser.creator?.email})`}
+                            {info.notifyUser.creator?.ldap ? `${info.notifyUser.creator?.realName}(${info.notifyUser.creator?.loginName})` : `${info.notifyUser.creator?.realName}(${info.notifyUser.creator?.email})`}
                           </span>
                         </li>
                         <li className={classnames('c7n-task-detail-row-inform-person', { 'c7n-task-detail-row-hide': !info.notifyUser.administrator })}>
-                          {level}{formatMessage({ id: `${intlPrefix}.manager` })}
+                          {level}
+                          {formatMessage({ id: `${intlPrefix}.manager` })}
                         </li>
                         <li className={classnames('c7n-task-detail-row-inform-person', { 'c7n-task-detail-row-hide': !info.notifyUser.assigner.length })}>
                           {formatMessage({ id: `${intlPrefix}.user` })}
                           {info.notifyUser.assigner.length ? (
                             <div className="c7n-task-detail-row-inform-person-informlist-name-container">
                               {
-                                info.notifyUser.assigner.map(({loginName, realName, ldap, email}) => (
+                                info.notifyUser.assigner.map(({
+                                  loginName, realName, ldap, email,
+                                }) => (
                                   <div key={loginName}>
-                                    <span>{realName}({ldap ? loginName : email})</span>
+                                    <span>
+                                      {realName}
+                                      (
+                                      {ldap ? loginName : email}
+                                      )
+                                    </span>
                                     <span>、</span>
                                   </div>
                                 ))
@@ -189,7 +199,7 @@ const Detail = () => {
             </Table>
           )}
       </div>
-    </Content>
+    </div>
   );
 };
 export default (props) => (
