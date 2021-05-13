@@ -221,14 +221,12 @@ const List = observer(() => {
           icon: 'playlist_add',
           handler: createTask,
           display: true,
-          group: 1,
         }, {
           permissions: methodService,
           name: '可执行程序',
           icon: 'classname',
           handler: openExecutableProgram,
           display: true,
-          group: 1,
         }]}
         />
       </Header>
