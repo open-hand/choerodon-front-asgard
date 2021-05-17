@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
-import { Button } from 'choerodon-ui';
-import { Modal, Table } from 'choerodon-ui/pro';
+import { Modal, Table, Button } from 'choerodon-ui/pro';
 import { FormattedMessage } from 'react-intl';
-import { Content, Header, Page, Breadcrumb, Permission, Action, axios, StatusTag, Choerodon } from '@choerodon/boot';
+import {
+  Content, Header, Page, Breadcrumb, Permission, Action, axios, Choerodon, HeaderButtons,
+} from '@choerodon/boot';
+import { StatusTag } from '@choerodon/components';
 import './List.less';
 import '../../common/ConfirmModal.scss';
 import MouseOverWrapper from '../../components/mouseOverWrapper';
@@ -50,8 +52,13 @@ function getPermission(AppState) {
 }
 const { Column } = Table;
 const List = observer(() => {
-  const { AppState, intl, intlPrefix, taskDataSet, taskdetail, levelType } = useContext(Store);
-  const { deleteService, detailService, createService, disableService, enableService, normalService, methodService } = getPermission(AppState);
+  const {
+    AppState, intl, intlPrefix, taskDataSet, taskdetail, levelType,
+  } = useContext(Store);
+  const {
+    // eslint-disable-next-line max-len
+    deleteService, detailService, createService, disableService, enableService, normalService, methodService,
+  } = getPermission(AppState);
   function getLevelType(type, id) {
     return (type === 'site' ? '' : `/${type}s/${id}`);
   }
@@ -88,7 +95,7 @@ const List = observer(() => {
         action: handleAble.bind(this, record),
         text: <FormattedMessage id="disable" />,
       }];
-    } else if (status === 'DISABLE') {
+    } if (status === 'DISABLE') {
       return [{
         service: enableService,
         action: handleAble.bind(this, record),
@@ -97,7 +104,6 @@ const List = observer(() => {
     }
     return [];
   }
-
 
   const handleCreateOk = () => {
     taskDataSet.query();
@@ -126,7 +132,6 @@ const List = observer(() => {
     });
   };
 
-
   function createTask() {
     Modal.open({
       title: <FormattedMessage id={`${intlPrefix}.create`} />,
@@ -153,7 +158,6 @@ const List = observer(() => {
     });
   }
 
-
   /**
    * 开启侧边栏
    * @param selectType create/detail
@@ -175,12 +179,11 @@ const List = observer(() => {
     });
   };
 
-
   const renderName = ({ text, record }) => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <MouseOverWrapper text={text} width={0.2}>
         <Permission service={detailService} noAccessChildren={text}>
-          <span className="c7n-asgard-table-cell-click" onClick={openDetail.bind(this, record)}>
+          <span role="none" className="c7n-asgard-table-cell-click" onClick={openDetail.bind(this, record)}>
             {text}
           </span>
         </Permission>

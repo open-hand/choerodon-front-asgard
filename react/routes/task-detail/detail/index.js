@@ -1,8 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { Tabs, Row, Col } from 'choerodon-ui';
-import { Table, DataSet } from 'choerodon-ui/pro';
+import {
+  Tabs, Row, Col, Icon,
+} from 'choerodon-ui';
+import { Table, DataSet, Tooltip } from 'choerodon-ui/pro';
 import { FormattedMessage } from 'react-intl';
-import { Content, StatusTag } from '@choerodon/boot';
+import { StatusTag } from '@choerodon/components';
+import { Content } from '@choerodon/boot';
 import classnames from 'classnames';
 import Store, { StoreProvider } from './stores';
 import MouseOverWrapper from '../../../components/mouseOverWrapper';
@@ -11,7 +14,9 @@ import './index.less';
 const { TabPane } = Tabs;
 const { Column } = Table;
 const Detail = () => {
-  const { intl: { formatMessage }, intlPrefix, logDataSet, info, AppState } = useContext(Store);
+  const {
+    intl: { formatMessage }, intlPrefix, logDataSet, info, AppState,
+  } = useContext(Store);
   const { currentMenuType: { type } } = AppState;
   const level = `${type === 'site' ? '平台' : '组织'}`;
   const [showLog, setShowLog] = useState(false);
@@ -112,12 +117,31 @@ const Detail = () => {
     />
   </Table>,
   }];
-  const renderStatus = ({ text: status }) => (
-    <StatusTag
-      name={formatMessage({ id: status.toLowerCase() })}
-      colorCode={status}
-    />
-  );
+
+  const renderStatus = ({ text: status, record }) => {
+    const exceptionMessage = record.get('exceptionMessage');
+    return (
+      <>
+        <StatusTag
+          name={formatMessage({ id: status.toLowerCase() })}
+          colorCode={status}
+        />
+        {exceptionMessage && (
+        <Tooltip title={exceptionMessage}>
+          <Icon
+            type="info"
+            style={{
+              color: 'rgb(247, 103, 118)',
+              marginLeft: '2px',
+            }}
+          />
+        </Tooltip>
+        )}
+
+      </>
+    );
+  };
+
   return (
     <Content
       className="sidebar-content"
@@ -148,20 +172,28 @@ const Detail = () => {
                         <li className={classnames('c7n-task-detail-row-inform-person', { 'c7n-task-detail-row-hide': !info.notifyUser.creator })}>
                           {formatMessage({ id: `${intlPrefix}.creator` })}
                           <span style={{ marginLeft: '10px' }}>
-                            {info.notifyUser.creator?.ldap ? `${info.notifyUser.creator?.realName}(${info.notifyUser.creator?.loginName})`:`${info.notifyUser.creator?.realName}(${info.notifyUser.creator?.email})`}
+                            {info.notifyUser.creator?.ldap ? `${info.notifyUser.creator?.realName}(${info.notifyUser.creator?.loginName})` : `${info.notifyUser.creator?.realName}(${info.notifyUser.creator?.email})`}
                           </span>
                         </li>
                         <li className={classnames('c7n-task-detail-row-inform-person', { 'c7n-task-detail-row-hide': !info.notifyUser.administrator })}>
-                          {level}{formatMessage({ id: `${intlPrefix}.manager` })}
+                          {level}
+                          {formatMessage({ id: `${intlPrefix}.manager` })}
                         </li>
                         <li className={classnames('c7n-task-detail-row-inform-person', { 'c7n-task-detail-row-hide': !info.notifyUser.assigner.length })}>
                           {formatMessage({ id: `${intlPrefix}.user` })}
                           {info.notifyUser.assigner.length ? (
                             <div className="c7n-task-detail-row-inform-person-informlist-name-container">
                               {
-                                info.notifyUser.assigner.map(({loginName, realName, ldap, email}) => (
+                                info.notifyUser.assigner.map(({
+                                  loginName, realName, ldap, email,
+                                }) => (
                                   <div key={loginName}>
-                                    <span>{realName}({ldap ? loginName : email})</span>
+                                    <span>
+                                      {realName}
+                                      (
+                                      {ldap ? loginName : email}
+                                      )
+                                    </span>
                                     <span>、</span>
                                   </div>
                                 ))
@@ -181,11 +213,9 @@ const Detail = () => {
           : (
             <Table dataSet={logDataSet}>
               <Column name="status" width={100} renderer={renderStatus} />
-
               <Column name="serviceInstanceId" className="c7n-asgard-table-cell" />
               <Column name="plannedStartTime" className="c7n-asgard-table-cell" />
               <Column name="actualStartTime" className="c7n-asgard-table-cell" />
-
             </Table>
           )}
       </div>
