@@ -1,23 +1,26 @@
 {
   "name": "@choerodon/asgard",
   "routeName": "asgard",
-  "version": "0.25.2",
+  "version": "0.26.0",
   "description": "",
   "main": "./lib/index.js",
   "files": [
     "lib"
   ],
+  "resolutions": {
+    "react": "16.14.0",
+    "react-dom": "16.14.0"
+  },
   "dependencies": {
-    "mobx-react-lite": "^1.4.1",
     "js-beautify": "^1.10.2",
+    "mobx-react-lite": "^1.4.1",
     "react-codemirror": "^1.0.0"
   },
   "devDependencies": {
     "@choerodon/boot": "0.23.1",
-    "@choerodon/master": "0.25.3",
-    "@choerodon/components":"0.0.1",
+    "@choerodon/master": "0.26.0",
     "babel-eslint": "^8.1.0",
-    "babel-preset-c7n": "^0.0.1",
+    "babel-preset-c7n": "^0.0.2",
     "eslint": "^7.6.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-c7n-app": "^0.0.1",
@@ -32,7 +35,7 @@
     "lint-staged": "lint-staged",
     "lint-staged:es": "eslint",
     "compile": "choerodon-front-boot compile",
-    "clean-install": "rm -rf node_modules && rm package-lock.json && npm i --registry https://nexus.choerodon.com.cn/repository/choerodon-npm && chmod -R u+x node_modules"
+    "clean": "rm -rf node_modules && rm package-lock.json"
   },
   "author": "",
   "license": "ISC",

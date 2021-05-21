@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Modal, Table, Button } from 'choerodon-ui/pro';
 import { FormattedMessage } from 'react-intl';
 import {
-  Content, Header, Page, Breadcrumb, Permission, Action, axios, Choerodon, HeaderButtons,
+  Content, Header, Page, Breadcrumb, Permission, Action, axios, StatusTag, Choerodon, HeaderButtons,
 } from '@choerodon/boot';
-import { StatusTag } from '@choerodon/components';
 import './List.less';
 import '../../common/ConfirmModal.scss';
 import MouseOverWrapper from '../../components/mouseOverWrapper';
@@ -56,8 +55,8 @@ const List = observer(() => {
     AppState, intl, intlPrefix, taskDataSet, taskdetail, levelType,
   } = useContext(Store);
   const {
-    // eslint-disable-next-line max-len
-    deleteService, detailService, createService, disableService, enableService, normalService, methodService,
+    deleteService, detailService, createService, disableService, enableService,
+    normalService, methodService,
   } = getPermission(AppState);
   function getLevelType(type, id) {
     return (type === 'site' ? '' : `/${type}s/${id}`);
@@ -183,7 +182,11 @@ const List = observer(() => {
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <MouseOverWrapper text={text} width={0.2}>
         <Permission service={detailService} noAccessChildren={text}>
-          <span role="none" className="c7n-asgard-table-cell-click" onClick={openDetail.bind(this, record)}>
+          <span
+            className="c7n-asgard-table-cell-click"
+            onClick={openDetail.bind(this, record)}
+            role="none"
+          >
             {text}
           </span>
         </Permission>
@@ -206,32 +209,29 @@ const List = observer(() => {
       colorCode={status}
     />
   );
+
   return (
-    <Page
-      service={normalService}
-    >
-      <Header
-        title={<FormattedMessage id={`${intlPrefix}.header.title`} />}
-      >
-        <Permission service={createService}>
-          <Button
-            icon="playlist_add"
-            onClick={createTask}
-          >
-            <FormattedMessage id={`${intlPrefix}.create`} />
-          </Button>
-        </Permission>
-        <Permission service={methodService}>
-          <Button
-            icon="classname"
-            onClick={openExecutableProgram}
-          >
-            可执行程序
-          </Button>
-        </Permission>
+    <Page service={normalService}>
+      <Header>
+        <HeaderButtons
+          items={[{
+            permissions: createService,
+            name: intl.formatMessage({ id: `${intlPrefix}.create` }),
+            icon: 'playlist_add',
+            handler: createTask,
+            display: true,
+          }, {
+            permissions: methodService,
+            name: '可执行程序',
+            icon: 'classname',
+            handler: openExecutableProgram,
+            display: true,
+          }]}
+          showClassName={false}
+        />
       </Header>
       <Breadcrumb />
-      <Content style={{ paddingTop: 0 }}>
+      <Content>
         <Table
           dataSet={taskDataSet}
         >

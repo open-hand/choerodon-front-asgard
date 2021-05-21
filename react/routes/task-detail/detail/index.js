@@ -143,7 +143,7 @@ const Detail = () => {
   };
 
   return (
-    <Content
+    <div
       className="sidebar-content"
     >
       <Tabs activeKey={showLog ? 'log' : 'info'} onChange={handleTabChange}>
@@ -219,7 +219,7 @@ const Detail = () => {
             </Table>
           )}
       </div>
-    </Content>
+    </div>
   );
 };
 export default (props) => (

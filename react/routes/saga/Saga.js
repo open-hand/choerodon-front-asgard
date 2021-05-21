@@ -54,7 +54,7 @@ const Saga = observer(() => {
       ]}
     >
       <Breadcrumb />
-      <Content style={{ paddingTop: 0 }}>
+      <Content>
         {renderTable()}
       </Content>
     </Page>
