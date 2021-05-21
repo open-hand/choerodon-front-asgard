@@ -1,8 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { Tabs, Row, Col } from 'choerodon-ui';
-import { Table, DataSet } from 'choerodon-ui/pro';
+import {
+  Tabs, Row, Col, Icon,
+} from 'choerodon-ui';
+import { Table, DataSet, Tooltip } from 'choerodon-ui/pro';
 import { FormattedMessage } from 'react-intl';
-import { Content, StatusTag } from '@choerodon/boot';
+import { StatusTag } from '@choerodon/components';
+import { Content } from '@choerodon/boot';
 import classnames from 'classnames';
 import Store, { StoreProvider } from './stores';
 import MouseOverWrapper from '../../../components/mouseOverWrapper';
@@ -114,12 +117,31 @@ const Detail = () => {
     />
   </Table>,
   }];
-  const renderStatus = ({ text: status }) => (
-    <StatusTag
-      name={formatMessage({ id: status.toLowerCase() })}
-      colorCode={status}
-    />
-  );
+
+  const renderStatus = ({ text: status, record }) => {
+    const exceptionMessage = record.get('exceptionMessage');
+    return (
+      <>
+        <StatusTag
+          name={formatMessage({ id: status.toLowerCase() })}
+          colorCode={status}
+        />
+        {exceptionMessage && (
+        <Tooltip title={exceptionMessage}>
+          <Icon
+            type="info"
+            style={{
+              color: 'rgb(247, 103, 118)',
+              marginLeft: '2px',
+            }}
+          />
+        </Tooltip>
+        )}
+
+      </>
+    );
+  };
+
   return (
     <div
       className="sidebar-content"
@@ -191,11 +213,9 @@ const Detail = () => {
           : (
             <Table dataSet={logDataSet}>
               <Column name="status" width={100} renderer={renderStatus} />
-
               <Column name="serviceInstanceId" className="c7n-asgard-table-cell" />
               <Column name="plannedStartTime" className="c7n-asgard-table-cell" />
               <Column name="actualStartTime" className="c7n-asgard-table-cell" />
-
             </Table>
           )}
       </div>
