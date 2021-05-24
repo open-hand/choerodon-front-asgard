@@ -1,10 +1,12 @@
-/* eslint-disable max-classes-per-file */
+/* eslint-disable */
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
 import { Divider } from 'choerodon-ui';
-import { Form, Select, Table, TextField, TextArea, DateTimePicker, SelectBox, NumberField, Tooltip, Icon } from 'choerodon-ui/pro';
+import {
+  Form, Select, Table, TextField, TextArea, DateTimePicker, SelectBox, NumberField, Tooltip, Icon,
+} from 'choerodon-ui/pro';
 import Store, { StoreProvider } from './stores';
 import FormSelectEditor from '../../../components/formSelectEditor';
 import OrgUserDataSetConfig from './stores/OrgUserDataSet';
@@ -13,13 +15,17 @@ import './index.less';
 const { Option } = Select;
 const { Column } = Table;
 const TaskCreate = observer(() => {
-  const { methodDataSet, taskCreateDataSet, paramDataSet, mainStore, prefixCls, id, intl, type, modal, intlPrefix, onOk } = useContext(Store);
+  const {
+    methodDataSet, taskCreateDataSet, paramDataSet, mainStore, prefixCls, id, intl, type, modal, intlPrefix, onOk,
+  } = useContext(Store);
   const microservice = Array.from(new Set(methodDataSet.map((r) => r.get('service'))));
   const executeStrategyHelp = (
-    <span>超时策略：
+    <span>
+      超时策略：
       <p>阻塞： 下次触发时间若上次触发任务未完成，则暂停定时任务，任务不再被执行</p>
       <p>串行： 下次触发时间若上次触发任务未完成，两次任务可按照触发时间依次被执行</p>
-      <p>并行： 下次触发时间若上次触发任务未完成，两次任务可以同时被执行
+      <p>
+        并行： 下次触发时间若上次触发任务未完成，两次任务可以同时被执行
       </p>
     </span>
   );
@@ -43,9 +49,8 @@ const TaskCreate = observer(() => {
     if (await taskCreateDataSet.submit()) {
       onOk();
       return true;
-    } else {
-      return false;
     }
+    return false;
   });
   function getUserOption({ record, text, value }) {
     return (
@@ -96,7 +101,7 @@ const TaskCreate = observer(() => {
     }
   }
   return (
-    <React.Fragment>
+    <>
       <div className="c7n-task-create-container">
         <div className="c7n-task-create-container-small">
           <div className="title">基础信息</div>
@@ -176,8 +181,8 @@ const TaskCreate = observer(() => {
           <Form columns={5} dataSet={taskCreateDataSet}>
             {taskCreateDataSet.current.get('triggerType') === 'simple-trigger' ? [
               <NumberField colSpan={2} name="simpleRepeatInterval" />,
-              <Select clearButton={false} colSpan={1} name="simpleRepeatIntervalUnit" />,
-              <NumberField colSpan={2} name="simpleRepeatCount" />,
+              <Select clearButton={false} colSpan={2} name="simpleRepeatIntervalUnit" />,
+              <NumberField colSpan={1} name="simpleRepeatCount" />,
             ] : (
               <TextField colSpan={5} name="cronExpression" addonAfter={getCronHelper()} />
             )}
@@ -213,7 +218,7 @@ const TaskCreate = observer(() => {
           )}
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 });
 

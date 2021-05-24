@@ -94,7 +94,7 @@ export default function ({
         name: 'simpleRepeatIntervalUnit', type: 'string', label: '间隔单位', defaultValue: 'SECONDS', options: simpleRepeatIntervalUnitOptionDs,
       },
       {
-        name: 'simpleRepeatCount', type: 'number', label: '执行次数', min: 1, dynamicProps: ({ record }) => ({ required: record.get('triggerType') === 'simple-trigger' }),
+        name: 'simpleRepeatCount', type: 'number', label: '执行数', min: 1, dynamicProps: ({ record }) => ({ required: record.get('triggerType') === 'simple-trigger' }),
       },
       {
         name: 'cronExpression', type: 'string', label: 'cron表达式', dynamicProps: ({ record }) => ({ required: record.get('triggerType') !== 'simple-trigger', validator: record.get('triggerType') !== 'simple-trigger' ? checkCronExpression : noop }),
