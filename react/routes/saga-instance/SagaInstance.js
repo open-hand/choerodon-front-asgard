@@ -299,7 +299,7 @@ const SagaInstance = withRouter(observer((props) => {
           </div>
         </div>
       </div>
-      <Content style={{ padding: 0 }}>
+      <Content>
         <div className="c7n-saga-instance-btns">
           <span className="text">
             <FormattedMessage id={`${intlPrefix}.view`} />

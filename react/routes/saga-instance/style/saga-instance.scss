@@ -86,10 +86,12 @@
 
   // 修改事务实例中列表的展开箭头
   &-table {
-    padding: 0 24px;
-    height: calc(100% - 54px);
+    padding: 0 24px 60px 24px;
     overflow-y: auto;
     overflow-x: hidden;
+    height: 88%;
+    position: absolute;
+    left: 0;
 
     &-tooltip {
       &-item {
