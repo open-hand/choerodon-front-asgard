@@ -697,7 +697,7 @@ const zh_CN = {
   running: '运行中',
   failed: '失败',
   completed: '完成',
-  non_consumer: '完成',
+  non_consumer: '没有消费者',
   predefined: '预定义',
   custom: '自定义',
   email: '邮件',

@@ -223,7 +223,7 @@ const List = observer(() => {
           }, {
             permissions: methodService,
             name: '可执行程序',
-            icon: 'classname',
+            icon: 'running',
             handler: openExecutableProgram,
             display: true,
           }]}
@@ -238,11 +238,7 @@ const List = observer(() => {
           <Column name="name" renderer={renderName} />
           <Column
             name="description"
-            renderer={({ text }) => (
-              <MouseOverWrapper text={text} width={0.2} className="c7n-asgard-table-cell">
-                {text}
-              </MouseOverWrapper>
-            )}
+            tooltip="overflow"
           />
           <Column name="lastExecTime" className="c7n-asgard-table-cell" />
           <Column name="nextExecTime" className="c7n-asgard-table-cell" />
