@@ -188,7 +188,7 @@ const TaskCreate = observer(() => {
             )}
             <Select colSpan={5} name="executeStrategy" suffix={<Tooltip title={executeStrategyHelp} theme="light"><Icon type="help" /></Tooltip>} />
           </Form>
-          <div className="sub-title">通知对象</div>
+          <div style={{ marginBottom: 0 }} className="sub-title">通知对象</div>
           <Form dataSet={taskCreateDataSet}>
             <SelectBox name="notifyUser" />
           </Form>
