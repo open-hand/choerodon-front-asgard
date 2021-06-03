@@ -192,7 +192,7 @@ const List = observer(() => {
         </Permission>
       </MouseOverWrapper>
       <Action
-        style={{ marginLeft: 'auto', flexShrink: 0 }}
+        style={{ marginLeft: 'auto', flexShrink: 0, color: 'rgb(83, 101, 234)' }}
         data={[
           ...showActionButton(record),
           {
