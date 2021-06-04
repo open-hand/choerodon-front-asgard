@@ -138,7 +138,7 @@ const TaskCreate = observer(() => {
           <Column name="type" />
           <Column name="description" />
         </Table>
-        <div className="c7n-task-create-container-small">
+        <div className="c7n-task-create-container-small" style={{ marginTop: 20 }}>
           <Form dataSet={taskCreateDataSet}>
             <TextField name="name" />
             <TextArea name="description" resize="vertical" />
