@@ -154,7 +154,7 @@
   }
 
   &-task-detail {
-    color: #000;
+    color: var(--text-color);
 
     &-title {
       font-family: PingFangSC-Regular, sans-serif;
@@ -163,7 +163,7 @@
       padding-bottom: 5px;
       font-weight: 600;
       margin-bottom: 15px; // margin 会合并 相等于marginBottom 5px
-      color: rgba(0, 0, 0, 0.65);
+      color: var(--text-color3);
     }
 
     &-content {
@@ -178,7 +178,7 @@
 
       &-label {
         width: 150px;
-        color: rgba(0, 0, 0, 0.65);
+        color: var(--text-color3);
 
         &:after {
           content: '';
