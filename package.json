@@ -1,7 +1,7 @@
 {
   "name": "@choerodon/asgard",
   "routeName": "asgard",
-  "version": "0.26.0",
+  "version": "1.0.0",
   "description": "",
   "main": "./lib/index.js",
   "files": [
@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@choerodon/boot": "0.23.1",
-    "@choerodon/master": "0.26.0",
+    "@choerodon/master": "1.0.0",
     "babel-eslint": "^8.1.0",
     "babel-preset-c7n": "^0.0.2",
     "eslint": "^7.6.0",
