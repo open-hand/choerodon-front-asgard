@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import { Popover, Icon } from 'choerodon-ui';
-import './Tips.scss';
+import './Tips.less';
 
 function Tips(props) {
   const {
@@ -11,7 +11,7 @@ function Tips(props) {
     intl,
   } = props;
   return (
-    <Fragment>
+    <>
       {type === 'title' && (
         <div className="c7n-iam-table-title-tip">
           <FormattedMessage id={data} />
@@ -26,7 +26,7 @@ function Tips(props) {
       )}
       {type === 'form' && (
         <Popover
-          content={<Fragment>{intl.formatMessage({ id: data }).split('\n').map(v => <div key={v}>{v}</div>)}</Fragment>}
+          content={<>{intl.formatMessage({ id: data }).split('\n').map((v) => <div key={v}>{v}</div>)}</>}
           overlayClassName="c7n-iam-tips-popover"
           placement="topRight"
           arrowPointAtCenter
@@ -34,7 +34,7 @@ function Tips(props) {
           <Icon type="help c7n-iam-select-tip" />
         </Popover>
       )}
-    </Fragment>
+    </>
   );
 }
 

@@ -4,9 +4,9 @@ import { Content, Choerodon } from '@choerodon/boot';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import classnames from 'classnames';
 import CodeShow from './CodeShow';
-import './style/saga-img.scss';
-import './style/saga.scss';
-import './style/json.scss';
+import './style/saga-img.less';
+import './style/saga.less';
+import './style/json.less';
 
 const intlPrefix = 'global.saga';
 const { TabPane } = Tabs;

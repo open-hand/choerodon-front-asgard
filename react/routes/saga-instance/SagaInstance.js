@@ -9,12 +9,10 @@ import {
 import { Button, Tooltip } from 'choerodon-ui';
 import { withRouter } from 'react-router-dom';
 import { Table, Modal } from 'choerodon-ui/pro';
-import { ThemeWrap } from '@choerodon/master';
-import classnames from 'classnames';
 
 import { FormattedMessage } from 'react-intl';
 import MouseOverWrapper from '../../components/mouseOverWrapper';
-import './style/saga-instance.scss';
+import './style/saga-instance.less';
 import Store, { StoreProvider } from './stores';
 import SagaImg from '../saga/SagaImg';
 

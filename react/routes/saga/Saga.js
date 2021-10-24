@@ -6,8 +6,8 @@ import { Content, Page } from '@choerodon/boot';
 import { FormattedMessage } from 'react-intl';
 import Detail from './detail';
 import Store, { StoreProvider } from './stores';
-import './style/saga.scss';
-import './style/json.scss';
+import './style/saga.less';
+import './style/json.less';
 
 const key = Modal.key();
 const { Column } = Table;
