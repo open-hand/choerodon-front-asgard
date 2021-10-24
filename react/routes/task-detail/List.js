@@ -6,7 +6,7 @@ import {
   Content, Header, Page, Breadcrumb, Permission, Action, axios, StatusTag, Choerodon, HeaderButtons,
 } from '@choerodon/boot';
 import './List.less';
-import '../../common/ConfirmModal.scss';
+import '../../common/ConfirmModal.less';
 import MouseOverWrapper from '../../components/mouseOverWrapper';
 
 import Store, { StoreProvider } from './stores';
