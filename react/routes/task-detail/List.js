@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import {
   Content, Header, Page, Breadcrumb, Permission, Action, axios, StatusTag, Choerodon, HeaderButtons,
 } from '@choerodon/boot';
+import { useDebounceFn } from 'ahooks';
 import './List.less';
 import '../../common/ConfirmModal.less';
 import MouseOverWrapper from '../../components/mouseOverWrapper';
@@ -54,6 +55,16 @@ const List = observer(() => {
   const {
     AppState, intl, intlPrefix, taskDataSet, taskdetail, levelType,
   } = useContext(Store);
+
+  const { run } = useDebounceFn(
+    (func) => {
+      func();
+    },
+    {
+      wait: 500,
+    },
+  );
+
   const {
     deleteService, detailService, createService, disableService, enableService,
     normalService, methodService,
@@ -184,7 +195,7 @@ const List = observer(() => {
         <Permission service={detailService} noAccessChildren={text}>
           <span
             className="c7n-asgard-table-cell-click"
-            onClick={openDetail.bind(this, record)}
+            onClick={() => run(() => openDetail(record))}
             role="none"
           >
             {text}
