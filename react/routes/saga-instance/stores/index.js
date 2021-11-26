@@ -31,7 +31,7 @@ export const StoreProvider = injectIntl(inject('AppState')(
         break;
     }
     const code = `${codePrefix}.saga-instance`;
-    const intlPrefix = 'global.saga-instance';
+    const intlPrefix = 'c7ncd.saga-instance';
     const instanceDataSet = useMemo(() => new DataSet(SagaInstanceDataSet({ id, apiGetway, intl, intlPrefix })), [id]);
     const taskDataSet = useMemo(() => new DataSet(SagaTaskDataSet({ id, apiGetway, intl, intlPrefix })), [id]);
     /**

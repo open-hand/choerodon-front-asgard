@@ -217,21 +217,10 @@ const pageDetail = {
 
   // 事务定义
   'global.saga.title': '事务定义',
-  // 'global.saga.description': '事务定义用于维护不同微服务间的数据一致性。您可以查看每个事务定义的详情。',
-  // 'global.saga.link': `${docServer}/user-guide/microservice-development/global-transaction/saga/`,
 
   'global.saga.detail.title': '查看事务定义"{name}"的详情',
   'global.saga.detail.description': '您可以在此查看事务定义图、事务定义Json。',
   'global.saga.detail.link': `${docServer}/user-guide/microservice-development/global-transaction/saga/`,
-
-  // 事务实例
-  'global.saga-instance.title': '事务实例',
-  'global.saga-instance.description': '事务实例属于事务定义，您可以查看事务实例的运行情况并查看事务实例中每个任务的运行情况。',
-  'global.saga-instance.link': `${docServer}/user-guide/microservice-development/global-transaction/saga-instance/`,
-
-  'global.saga-instance.detail.title': '查看事务实例"{name}"的详情',
-  'global.saga-instance.detail.description': '您可以在此查看事务实例所包含任务的信息。',
-  'global.saga-instance.detail.link': `${docServer}/user-guide/microservice-development/global-transaction/saga-instance/`,
 
   // 仪表盘配置
   'global.dashboard-setting.title': '平台"{name}"的仪表盘配置',
@@ -451,7 +440,6 @@ const pageDetail = {
   'organization.application.header.title': '应用',
   'organization.application.title': '组织"{name}"的应用',
   'organization.application.description': '应用是够供给市场，被人们使用和消费，并能满足人们某种需求的任何东西，包括有形的物品、无形的服务、组织、观念或它们的组合。您可以在这里创建普通应用或者组合应用、维护应用信息、启停用应用。',
-  // 'organization.application.link': `${docServer}/user-guide/microservice-development/job/execution-record/`,
 
   'organization.application.create': '创建应用',
   'organization.application.sidebar.title.create': '创建应用',
@@ -1262,26 +1250,6 @@ const zh_CN = {
   'global.saga.task.actualendtime': '实际完成时间',
   'global.saga.task.abort': '强制失败',
 
-  // 事务实例
-  'global.saga-instance.searchId': '编号',
-  'global.saga-instance.header.title': '事务实例',
-  'global.saga-instance.detail': '事务实例详情',
-  'global.saga-instance.view': '查看实例',
-  'global.saga-instance.instance': '事务',
-  'global.saga-instance.task': '任务',
-  'global.saga-instance.id': 'ID',
-  'global.saga-instance.status': '状态',
-  'global.saga-instance.start.time': '开始时间',
-  'global.saga-instance.end.time': '结束时间',
-  'global.saga-instance.saga': '所属事务实例',
-  'global.saga-instance.reftype': '关联业务类型',
-  'global.saga-instance.refid': '关联业务ID',
-  'global.saga-instance.progress': '进度条',
-  'global.saga-instance.completedCount': '完成',
-  'global.saga-instance.failedCount': '失败',
-  'global.saga-instance.runningCount': '运行中',
-  'global.saga-instance.waitToBePulledCount': '等待被拉取',
-
   // 仪表盘配置
   'global.dashboard-setting.header.title': '仪表盘配置',
   'global.dashboard-setting.sidebar.title': '修改卡片',
@@ -1728,20 +1696,6 @@ const zh_CN = {
   'memberrole.remove.all.client.content': '确认移除客户端"{name}"下的所有角色?',
   'memberrole.remove.client.content': '确认移除客户端"{member}"的角色"{role}"?',
 
-  // 事务实例
-  'saga-instance.overview': '事务实例状态总览：',
-  'saga-instance.code': '实例状态总览',
-  'saga-instance.saga.instance': '事务实例',
-  'saga-instance.saga.instance.id': 'ID',
-  'saga-instance.saga.instance.sagaCode': '所属事务定义',
-  'saga-instance.saga.instance.description': '描述',
-  'saga-instance.saga.instance.service': '所属微服务',
-  'saga-instance.saga.instance.level': '触发层级',
-  'saga-instance.saga.instance.level.site': '全局',
-  'saga-instance.saga.instance.level.project': '项目层',
-  'saga-instance.saga.instance.level.organization': '组织层',
-  'saga-instance.task.retry-count': '重试次数',
-
   // 角色标签
   'memberlabel.member.disabled.msg': '用户已被停用，无法给此用户分配角色，请先启用此用户',
   'memberlabel.member.notexist.msg': '不存在此用户，请输入正确的登录名',
@@ -1783,4 +1737,6 @@ const zh_CN = {
 
 };
 /* eslint-disable-next-line */
-export default zh_CN;
+export { zh_CN };
+
+export * from './saga-instance';

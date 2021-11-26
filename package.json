@@ -17,8 +17,8 @@
     "react-codemirror": "^1.0.0"
   },
   "devDependencies": {
-    "@choerodon/boot": "0.23.3",
-    "@choerodon/master": "1.1.0",
+    "@choerodon/boot": "1.2.0",
+    "@choerodon/master": "1.2.0",
     "babel-eslint": "^8.1.0",
     "babel-preset-c7n": "^0.0.2",
     "eslint": "^7.6.0",
