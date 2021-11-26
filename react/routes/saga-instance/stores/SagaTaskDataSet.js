@@ -5,11 +5,11 @@ export default ({
 }) => {
   const taskInstanceCode = intl.formatMessage({ id: 'global.saga.task.code' });
   const status = intl.formatMessage({ id: `${intlPrefix}.status` });
-  const sagaInstanceCode = intl.formatMessage({ id: 'global.saga-instance.saga' });
+  const sagaInstanceCode = intl.formatMessage({ id: 'c7ncd.saga-instance.saga' });
   const description = intl.formatMessage({ id: 'description' });
   const plannedStartTime = intl.formatMessage({ id: 'global.saga.task.actualstarttime' });
   const actualEndTime = intl.formatMessage({ id: 'global.saga.task.actualendtime' });
-  const retryCount = intl.formatMessage({ id: 'saga-instance.task.retry-count' });
+  const retryCount = intl.formatMessage({ id: 'c7ncd.saga-instance.task.retry-count' });
   const statusDataSet = new DataSet({
     data: [{
       value: 'RUNNING',

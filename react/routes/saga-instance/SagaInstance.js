@@ -115,7 +115,7 @@ const SagaInstance = withRouter(observer((props) => {
         </div>
         <div className="c7n-saga-instance-table-tooltip-item">
           <div className="c7n-saga-instance-table-tooltip-item-title">
-            <FormattedMessage id="global.saga-instance.start.time" />
+            <FormattedMessage id="c7ncd.saga-instance.start.time" />
           </div>
           <div className="c7n-saga-instance-table-tooltip-item-value">
             {startTime}
@@ -123,7 +123,7 @@ const SagaInstance = withRouter(observer((props) => {
         </div>
         <div className="c7n-saga-instance-table-tooltip-item">
           <div className="c7n-saga-instance-table-tooltip-item-title">
-            <FormattedMessage id="global.saga-instance.end.time" />
+            <FormattedMessage id="c7ncd.saga-instance.end.time" />
           </div>
           <div className="c7n-saga-instance-table-tooltip-item-value">
             {endTime}
@@ -282,7 +282,7 @@ const SagaInstance = withRouter(observer((props) => {
       <div className="c7n-saga-instance-title">
         <Breadcrumb />
         <div className="c7n-saga-status-content">
-          <div className="c7n-saga-status-text"><FormattedMessage id="saga-instance.overview" /></div>
+          <div className="c7n-saga-status-text"><FormattedMessage id="c7ncd.saga-instance.overview" /></div>
           <div className="c7n-saga-status-wrap">
             {istStatusType.map((item) => (
               <div

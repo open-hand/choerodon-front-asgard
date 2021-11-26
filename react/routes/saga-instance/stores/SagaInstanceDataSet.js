@@ -3,7 +3,7 @@ import { DataSet } from 'choerodon-ui/pro';
 export default ({
   id = 0, apiGetway, intl, intlPrefix,
 }) => {
-  const sagaCode = intl.formatMessage({ id: 'saga-instance.saga.instance' });
+  const sagaCode = intl.formatMessage({ id: 'c7ncd.saga-instance.saga.instance' });
   const searchId = intl.formatMessage({ id: `${intlPrefix}.searchId` });
   const status = intl.formatMessage({ id: `${intlPrefix}.status` });
   const startTime = intl.formatMessage({ id: `${intlPrefix}.start.time` });
