@@ -12,7 +12,7 @@ export default Store;
 export const StoreProvider = injectIntl(
   (props) => {
     const { intl, children } = props;
-    const intlPrefix = 'global.saga';
+    const intlPrefix = 'c7n.saga';
     const dataSet = useMemo(() => new DataSet(SagaDataSet({ intl, intlPrefix })), []);
     /**
     * detail data

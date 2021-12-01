@@ -3,7 +3,7 @@ import { DataSet } from 'choerodon-ui/pro';
 export default ({
   id = 0, apiGetway, intl, intlPrefix,
 }) => {
-  const sagaCode = intl.formatMessage({ id: 'c7ncd.saga-instance.saga.instance' });
+  const sagaCode = intl.formatMessage({ id: `${intlPrefix}.saga.instance` });
   const searchId = intl.formatMessage({ id: `${intlPrefix}.searchId` });
   const status = intl.formatMessage({ id: `${intlPrefix}.status` });
   const startTime = intl.formatMessage({ id: `${intlPrefix}.start.time` });
@@ -13,14 +13,14 @@ export default ({
   const statusDataSet = new DataSet({
     data: [{
       value: 'RUNNING',
-      meaning: '运行中',
+      meaning: intl.formatMessage({ id: 'boot.running' }),
     }, {
       value: 'FAILED',
-      meaning: '失败',
+      meaning: intl.formatMessage({ id: 'boot.failed' }),
     }, {
       // value: 'COMPLETED' || 'NON_CONSUMER',
       value: 'COMPLETED',
-      meaning: '完成',
+      meaning: intl.formatMessage({ id: 'boot.complete' }),
     }],
   });
 
