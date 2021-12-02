@@ -1740,3 +1740,5 @@ const zh_CN = {
 export { zh_CN };
 
 export * from './saga-instance';
+
+export * from './task-detail';

@@ -53,7 +53,7 @@ function getPermission(AppState) {
 const { Column } = Table;
 const List = observer(() => {
   const {
-    AppState, intl, intlPrefix, taskDataSet, taskdetail, levelType,
+    AppState, intl, intlPrefix, taskDataSet, taskdetail, levelType, formatClient,
   } = useContext(Store);
 
   const { run } = useDebounceFn(
@@ -227,13 +227,13 @@ const List = observer(() => {
         <HeaderButtons
           items={[{
             permissions: createService,
-            name: intl.formatMessage({ id: `${intlPrefix}.create` }),
+            name: formatClient({ id: 'create' }),
             icon: 'playlist_add',
             handler: createTask,
             display: true,
           }, {
             permissions: methodService,
-            name: '可执行程序',
+            name: formatClient({ id: 'executableProgram' }),
             icon: 'running',
             handler: openExecutableProgram,
             display: true,
