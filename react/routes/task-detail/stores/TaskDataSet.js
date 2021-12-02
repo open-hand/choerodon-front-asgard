@@ -1,11 +1,13 @@
 import { DataSet } from 'choerodon-ui/pro';
 
-export default ({ id = 0, levelType, intl, intlPrefix }) => {
-  const name = intl.formatMessage({ id: 'name' });
-  const description = intl.formatMessage({ id: 'description' });
-  const lastExecTime = intl.formatMessage({ id: `${intlPrefix}.last.execution.time` });
-  const nextExecTime = intl.formatMessage({ id: `${intlPrefix}.next.execution.time` });
-  const status = intl.formatMessage({ id: 'status' });
+export default ({
+  id = 0, levelType, intl, intlPrefix, formatClient,
+}) => {
+  const name = formatClient({ id: 'name' });
+  const description = formatClient({ id: 'description' });
+  const lastExecTime = formatClient({ id: 'lastExecutionTime' });
+  const nextExecTime = formatClient({ id: 'nextExecutionTime' });
+  const status = formatClient({ id: 'status' });
 
   const statusDataSet = new DataSet({
     data: [{
@@ -39,7 +41,9 @@ export default ({ id = 0, levelType, intl, intlPrefix }) => {
     queryFields: [
       { name: 'name', type: 'string', label: name },
       { name: 'description', type: 'string', label: description },
-      { name: 'status', type: 'string', label: status, options: statusDataSet },
+      {
+        name: 'status', type: 'string', label: status, options: statusDataSet,
+      },
     ],
   };
 };

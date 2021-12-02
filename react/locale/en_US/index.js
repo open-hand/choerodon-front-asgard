@@ -242,3 +242,5 @@ const en_US = {
 export { en_US };
 
 export * from './saga-instance';
+
+export * from './task-detail';
