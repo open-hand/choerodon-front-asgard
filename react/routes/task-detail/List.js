@@ -103,13 +103,13 @@ const List = observer(() => {
       return [{
         service: disableService,
         action: handleAble.bind(this, record),
-        text: <FormattedMessage id="disable" />,
+        text: <FormattedMessage id="boot.stop" />,
       }];
     } if (status === 'DISABLE') {
       return [{
         service: enableService,
         action: handleAble.bind(this, record),
-        text: <FormattedMessage id="enable" />,
+        text: <FormattedMessage id="boot.enable" />,
       }];
     }
     return [];
@@ -209,7 +209,7 @@ const List = observer(() => {
           {
             service: deleteService,
             action: handleDelete.bind(this, record),
-            text: <FormattedMessage id="delete" />,
+            text: <FormattedMessage id="boot.delete" />,
           }]}
       />
     </div>
