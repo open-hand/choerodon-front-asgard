@@ -26,6 +26,9 @@ const en_US = {
   stop: 'Stop',
   restart: 'Restart',
   upgrade: 'Upgrade',
+  running: 'Operation',
+  failed: 'Failure',
+  completed: 'Complete',
 
   // form
   required: 'the field is required',

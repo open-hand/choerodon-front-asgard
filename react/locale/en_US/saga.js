@@ -1,6 +1,6 @@
 const saga = {
-  'c7n.saga.code': 'code',
-  'c7n.saga.service': 'Defined services',
-  'c7n.saga.desc': 'deacription',
+  'c7n.saga.code': 'Code',
+  'c7n.saga.service': 'Service',
+  'c7n.saga.desc': 'Note',
 };
 export { saga };
