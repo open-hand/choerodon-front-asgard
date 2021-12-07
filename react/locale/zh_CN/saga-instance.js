@@ -2,7 +2,7 @@ const docServer = 'http://v0-14.choerodon.io/zh/docs';
 
 // 事务实例
 
-const SAGA_INSTANCE = {
+const SAGA_INSTANCE_ASGARD = {
   'c7ncd.saga-instance.title': '事务实例',
   'c7ncd.saga-instance.description': '事务实例属于事务定义，您可以查看事务实例的运行情况并查看事务实例中每个任务的运行情况。',
   'c7ncd.saga-instance.link': `${docServer}/user-guide/microservice-development/global-transaction/saga-instance/`,
@@ -44,4 +44,4 @@ const SAGA_INSTANCE = {
   'c7ncd.saga-instance.task.retry-count': '重试次数',
 };
 
-export { SAGA_INSTANCE };
+export { SAGA_INSTANCE_ASGARD };
