@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
-import { axios, Breadcrumb, Choerodon } from '@choerodon/boot';
+import {
+  axios, Breadcrumb, Choerodon, Content, Page,
+} from '@choerodon/boot';
 import { Table, Modal } from 'choerodon-ui/pro';
-import { Content, Page } from '@choerodon/boot';
+
 import { FormattedMessage } from 'react-intl';
 import Detail from './detail';
 import Store, { StoreProvider } from './stores';
@@ -31,7 +33,6 @@ const Saga = observer(() => {
       Choerodon.prompt(err);
     }
   };
-  // const renderCode = ({ record, code }) => <span onClick={() => { openDetail(record.get('id')); }}>{code}</span>;
   const renderTable = () => (
     <Table dataSet={dataSet}>
       <Column
