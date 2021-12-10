@@ -3,12 +3,12 @@ import { DataSet } from 'choerodon-ui/pro';
 export default ({
   id = 0, apiGetway, intl, intlPrefix,
 }) => {
-  const taskInstanceCode = intl.formatMessage({ id: 'global.saga.task.code' });
+  const taskInstanceCode = intl.formatMessage({ id: 'c7n.saga.task.code' });
   const status = intl.formatMessage({ id: `${intlPrefix}.status` });
   const sagaInstanceCode = intl.formatMessage({ id: 'c7ncd.saga-instance.saga' });
   const description = intl.formatMessage({ id: 'description' });
-  const plannedStartTime = intl.formatMessage({ id: 'global.saga.task.actualstarttime' });
-  const actualEndTime = intl.formatMessage({ id: 'global.saga.task.actualendtime' });
+  const plannedStartTime = intl.formatMessage({ id: 'c7n.saga.task.actualstarttime' });
+  const actualEndTime = intl.formatMessage({ id: 'c7n.saga.task.actualendtime' });
   const retryCount = intl.formatMessage({ id: 'c7ncd.saga-instance.task.retry-count' });
   const statusDataSet = new DataSet({
     data: [{

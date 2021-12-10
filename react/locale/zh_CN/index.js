@@ -1740,3 +1740,6 @@ export * from './saga-instance';
 
 export * from './task-detail';
 export * from './saga';
+
+export * from '@choerodon/master/lib/locale/zh_CN/saga-instance';
+export * from '@choerodon/master/lib/locale/zh_CN/saga-task';
