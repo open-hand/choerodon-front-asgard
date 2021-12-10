@@ -12,19 +12,23 @@ export default Store;
 
 export const StoreProvider = injectIntl(inject('AppState')(
   (props) => {
-    const { AppState: { currentMenuType: { type, id, organizationId } }, intl, children, taskId } = props;
-    
+    const {
+      AppState: { currentMenuType: { type, id, organizationId } }, intl, children, taskId,
+    } = props;
+
     const taskdetail = {
       type, id,
     };
-    const intlPrefix = 'taskdetail';  
-    const levelType = type === 'site' ? '' : `/${type}s/${id}`;  
-    const logDataSet = useMemo(() => new DataSet(LogDataSet({ id, intl, levelType, taskId, intlPrefix })), [id]);
+    const intlPrefix = 'c7n.taskdetail';
+    const levelType = type === 'site' ? '' : `/${type}s/${id}`;
+    const logDataSet = useMemo(() => new DataSet(LogDataSet({
+      id, intl, levelType, taskId, intlPrefix,
+    })), [id]);
 
     const value = {
       ...props,
       logDataSet,
-      taskdetail,   
+      taskdetail,
       prefixCls: 'c7n-saga',
       levelType,
       intlPrefix,

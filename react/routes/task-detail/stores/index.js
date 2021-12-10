@@ -17,7 +17,7 @@ export const StoreProvider = injectIntl(inject('AppState')(
     const taskdetail = {
       type, id,
     };
-    const intlPrefix = 'taskdetail';
+    const intlPrefix = 'c7n.taskdetail';
     const intlPrefixNew = 'c7ncd.task-detail';
     const formatCommon = useFormatCommon();
     const formatClient = useFormatMessage(intlPrefixNew);
