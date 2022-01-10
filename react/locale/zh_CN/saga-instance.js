@@ -41,7 +41,11 @@ const SAGA_INSTANCE_ASGARD = {
   'c7ncd.saga-instance.saga.instance.level.site': '全局',
   'c7ncd.saga-instance.saga.instance.level.project': '项目层',
   'c7ncd.saga-instance.saga.instance.level.organization': '组织层',
-  'c7ncd.saga-instance.task.retry-count': '重试次数',
+  'c7ncd.saga-instance.retry-count': '重试次数',
+  'c7ncd.saga-instance.taskCode': '任务编码',
+  'c7ncd.saga-instance.actualstarttime': '实际开始时间',
+  'c7ncd.saga-instance.actualendtime': '实际完成时间',
+  'c7ncd.saga-instance.taskDescription': '描述',
 };
 
 export { SAGA_INSTANCE_ASGARD };

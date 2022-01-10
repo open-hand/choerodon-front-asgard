@@ -41,7 +41,11 @@ const SAGA_INSTANCE_ASGARD = {
   'c7ncd.saga-instance.saga.instance.level.site': 'Site Level',
   'c7ncd.saga-instance.saga.instance.level.project': 'Project Level',
   'c7ncd.saga-instance.saga.instance.level.organization': 'Orgnization Level',
-  'c7ncd.saga-instance.task.retry-count': 'Retry Count',
+  'c7ncd.saga-instance.retry-count': 'Retry Count',
+  'c7ncd.saga-instance.taskCode': 'Code',
+  'c7ncd.saga-instance.actualstarttime': 'Actual Start Time',
+  'c7ncd.saga-instance.actualendtime': 'Actual Completion Time',
+  'c7ncd.saga-instance.taskDescription': 'Description',
 };
 
 export { SAGA_INSTANCE_ASGARD };
