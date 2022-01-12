@@ -88,29 +88,29 @@ const SagaInstance = withRouter(observer((props) => {
       <div>
         <div className="c7n-saga-instance-table-tooltip-item">
           <div className="c7n-saga-instance-table-tooltip-item-title">
-            <FormattedMessage id="saga-instance.saga.instance.sagaCode" />
+            <FormattedMessage id="c7ncd.saga-instance.saga.instance.sagaCode" />
 
           </div>
           <div className="c7n-saga-instance-table-tooltip-item-value">{sagaCode}</div>
         </div>
         <div className="c7n-saga-instance-table-tooltip-item">
           <div className="c7n-saga-instance-table-tooltip-item-title">
-            <FormattedMessage id="saga-instance.saga.instance.description" />
+            <FormattedMessage id="c7ncd.saga-instance.saga.instance.description" />
           </div>
           <div className="c7n-saga-instance-table-tooltip-item-value">{description}</div>
         </div>
         <div className="c7n-saga-instance-table-tooltip-item">
           <div className="c7n-saga-instance-table-tooltip-item-title">
-            <FormattedMessage id="saga-instance.saga.instance.service" />
+            <FormattedMessage id="c7ncd.saga-instance.saga.instance.service" />
           </div>
           <div className="c7n-saga-instance-table-tooltip-item-value">{service}</div>
         </div>
         <div className="c7n-saga-instance-table-tooltip-item">
           <div className="c7n-saga-instance-table-tooltip-item-title">
-            <FormattedMessage id="saga-instance.saga.instance.level" />
+            <FormattedMessage id="c7ncd.saga-instance.saga.instance.level" />
           </div>
           <div className="c7n-saga-instance-table-tooltip-item-value">
-            <FormattedMessage id={`saga-instance.saga.instance.level.${level}`} />
+            <FormattedMessage id={`c7ncd.saga-instance.saga.instance.level.${level}`} />
           </div>
         </div>
         <div className="c7n-saga-instance-table-tooltip-item">
