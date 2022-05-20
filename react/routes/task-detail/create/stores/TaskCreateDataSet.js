@@ -55,7 +55,6 @@ export default function ({
     autoCreate: true,
     transport: {
       create: ({ data: [data] }) => {
-        console.log(data)
         const tmpObj = {};
         data.notifyUser.forEach((v) => { tmpObj[v] = true; });
         data.notifyUser = tmpObj;
