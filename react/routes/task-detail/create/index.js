@@ -32,8 +32,12 @@ const TaskCreate = observer(() => {
   modal.handleOk(async () => {
     const params = {};
     function transType(ds) {
+      console.log(ds)
       const types = ds.get('type');
       const value = ds.get('defaultValue');
+      if(!value) {
+        return null
+      }
       const trans = {
         Boolean,
         Integer: parseInt,
@@ -42,6 +46,7 @@ const TaskCreate = observer(() => {
         Double: parseFloat,
         String,
       };
+      console.log(value)
       return types === 'Integer' ? parseInt(value, 10) : trans[types](value);
     }
     paramDataSet.forEach((r) => { params[r.get('name')] = transType(r); });
