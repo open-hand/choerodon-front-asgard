@@ -2,6 +2,7 @@
 import { DataSet } from 'choerodon-ui/pro';
 import { axios } from '@choerodon/boot';
 import { observable } from 'mobx';
+import JSONbig from 'json-bigint';
 
 function noop() { }
 export default function ({
@@ -54,6 +55,7 @@ export default function ({
     autoCreate: true,
     transport: {
       create: ({ data: [data] }) => {
+        console.log(data)
         const tmpObj = {};
         data.notifyUser.forEach((v) => { tmpObj[v] = true; });
         data.notifyUser = tmpObj;
@@ -61,7 +63,7 @@ export default function ({
         return {
           url: `/hagd/v1/schedules${levelType}/tasks`,
           method: 'post',
-          data,
+          data: JSONbig.stringify(data),
         };
       },
     },
