@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
+import { Choerodon } from '@choerodon/master';
 import { Divider } from 'choerodon-ui';
 import {
   Form, Select, Table, TextField, TextArea, DateTimePicker, SelectBox, NumberField, Tooltip, Icon,
@@ -51,11 +52,16 @@ const TaskCreate = observer(() => {
     }
     paramDataSet.forEach((r) => { params[r.get('name')] = transType(r); });
     taskCreateDataSet.current.set('params', params);
-    if (await taskCreateDataSet.submit()) {
-      onOk();
-      return true;
+    try {
+      if (await taskCreateDataSet.submit()) {
+        onOk();
+        return true;
+      }
+      return false;
+    } catch (error) {
+      Choerodon.handleResponseError(error);
+      return false;
     }
-    return false;
   });
   function getUserOption({ record, text, value }) {
     return (

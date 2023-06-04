@@ -1,22 +1,3 @@
 include: https://api.choerodon.com.cn/devops/v1/projects/261899051275677696/ci_contents/pipelines/e387fb62-de82-4630-8e46-f18d64643623/content.yaml
 #include: https://api.choerodon.com.cn/devops/v1/projects/1529/ci_contents/pipelines/f558f8ec-461f-408e-8a8e-bbd113e0dcb9/content.yaml
-#
-##image: registry.cn-shanghai.aliyuncs.com/c7n/cibase:0.9.1
-##
-##stages:
-##  - build
-##
-##build front:
-##  stage: build
-##  script:
-##    - npm install --registry ${NPM_REPO} --sass-binary-site=http://npm.taobao.org/mirrors/node-sass
-##    - chmod -R 755 node_modules
-##    - npm run compile
-##    - echo "//${NPM_REGISTRY}:_authToken=${NPM_TOKEN}">.npmrc
-##    - npm publish --registry ${NPM_PUBLISH_REGISTRY}
-##    - curl -sX POST -F token=${FRONT_REPOSITORY_TOKEN} -F ref=${REF_NAME} https://code.choerodon.com.cn/api/v4/projects/7909/trigger/pipeline
-##  only:
-##    - tags
-##    - master
-##    - /^.*hotfix.*$/
-##    - /^.*release.*$/
+
