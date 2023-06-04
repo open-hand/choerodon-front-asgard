@@ -1,5 +1,4 @@
-# include: https://api.choerodon.com.cn/devops/v1/projects/261899051275677696/ci_contents/pipelines/d92fdea5-2de1-4d8e-9aa6-850add1d77d4/content.yaml
-include: https://api.choerodon.com.cn/devops/v1/projects/261899051275677696/ci_contents/pipelines/7af702b6-8907-47c6-920f-2a2af8f6f5eb/content.yaml
+include: https://api.choerodon.com.cn/devops/v1/projects/261899051275677696/ci_contents/pipelines/e387fb62-de82-4630-8e46-f18d64643623/content.yaml
 #include: https://api.choerodon.com.cn/devops/v1/projects/1529/ci_contents/pipelines/f558f8ec-461f-408e-8a8e-bbd113e0dcb9/content.yaml
 #
 ##image: registry.cn-shanghai.aliyuncs.com/c7n/cibase:0.9.1
